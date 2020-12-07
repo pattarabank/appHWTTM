@@ -53,13 +53,13 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myDisease_recylerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_field"
-        />
+        app:layout_constraintTop_toBottomOf="@id/search_field" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
