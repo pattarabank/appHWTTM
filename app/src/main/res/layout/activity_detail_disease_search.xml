@@ -17,14 +17,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <TextView
-            android:id="@+id/myPreviousIcon"
+            android:id="@+id/myPreviousIconDisease"
             android:layout_width="16sp"
             android:layout_height="22sp"
             android:layout_margin="15sp"
             android:background="@drawable/left_arrow"
             android:textColor="#616161" />
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewDisease"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

@@ -29,10 +29,10 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sec_disease_search)
+        setContentView(R.layout.activity_disease_search)
 
 
-        diseaseSearchBackBtn = findViewById(R.id.myPreviousIcon)
+        diseaseSearchBackBtn = findViewById(R.id.myPreviousIconDisease)
         diseaseSearchBackBtn.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
@@ -40,16 +40,18 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
         }
 
         //setup recycle view
-        val searchListDisease = findViewById<RecyclerView>(R.id.myDisease_recylerview)
+        val searchListDisease = findViewById<RecyclerView>(R.id.myDisease_recylerview_Disease)
         searchListDisease.hasFixedSize()
         searchListDisease.layoutManager = LinearLayoutManager(this)
         searchListDisease.adapter = searchListDiseaseAdapter
         //search In Firestore()
-        findViewById<EditText>(R.id.search_field).addTextChangedListener(object : TextWatcher {
+        findViewById<EditText>(R.id.search_field_Disease).addTextChangedListener(object :
+            TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable?) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val searchText: String = findViewById<EditText>(R.id.search_field).text.toString()
+                val searchText: String =
+                    findViewById<EditText>(R.id.search_field_Disease).text.toString()
                 searchInFirestore(searchText.toLowerCase())
             }
         })
@@ -70,6 +72,7 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
                 }
             }
     }
+
     override fun onStart() {
         super.onStart()
         if (firebaseAuth.currentUser == null) {

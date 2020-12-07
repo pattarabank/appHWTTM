@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppHWTTM">
-        <activity android:name=".DetailDiseaseSearch"></activity>
+        <activity android:name=".ActivityFirstAidSearch"></activity>
+        <activity android:name=".SecActivityFirstAidSearch" />
+        <activity android:name=".DetailDiseaseSearch" />
         <activity android:name=".SecActivityDiseaseSearch" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".HealthCareActivity" />

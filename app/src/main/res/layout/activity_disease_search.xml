@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#CAE7B9"
+    tools:context=".SecActivityDiseaseSearch">
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -15,7 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <TextView
             android:id="@+id/myPreviousIconDisease"
             android:layout_width="16sp"
@@ -23,7 +24,6 @@
             android:layout_margin="15sp"
             android:background="@drawable/left_arrow"
             android:textColor="#616161" />
-
         <TextView
             android:id="@+id/textViewDisease"
             android:layout_width="0dp"
@@ -31,30 +31,35 @@
             android:layout_weight="1"
             android:fontFamily="@font/kodchasan"
             android:gravity="center"
-            android:text="@string/top_bar_text"
+            android:text="@string/top_bar_text_disease_search"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <EditText
+        android:id="@+id/search_field_Disease"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/kodchasan"
-        android:text="@string/home"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        android:autofillHints=""
+        android:background="#fff"
+        android:ems="10"
+        android:hint="@string/search_here"
+        android:inputType="text"
+        android:padding="16sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myDisease_recylerview_Disease"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded"
-        app:itemIconTint="@color/nav_icon_color"
-        app:itemTextColor="@color/nav_icon_color"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu" />
+        app:layout_constraintTop_toBottomOf="@id/search_field_Disease" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

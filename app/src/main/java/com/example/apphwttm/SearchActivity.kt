@@ -12,7 +12,7 @@ class SearchActivity : AppCompatActivity() {
 
     private lateinit var bottomBar: BottomNavigationView
     private lateinit var diseaseSearchBtn : TextView
-
+    private lateinit var firstaidSearchBtn : TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +55,13 @@ class SearchActivity : AppCompatActivity() {
         diseaseSearchBtn = findViewById(R.id.myTxv_5)
         diseaseSearchBtn.setOnClickListener {
             var intent = Intent(this,SecActivityDiseaseSearch::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
+
+        firstaidSearchBtn = findViewById(R.id.myTxv_6)
+        firstaidSearchBtn.setOnClickListener {
+            var intent = Intent(this,ActivityFirstAidSearch::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
