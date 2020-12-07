@@ -5,25 +5,29 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class HomeActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity() {
 
-    private lateinit var bottomBar : BottomNavigationView
+
+    private lateinit var bottomBar: BottomNavigationView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_profile)
+
 
         bottomBar = findViewById(R.id.bottom_navigation)
-        bottomBar.selectedItemId = R.id.itemHome
-        bottomBar.setOnNavigationItemSelectedListener { item->
-            when(item.itemId){
+        bottomBar.selectedItemId = R.id.itemProfile
+        bottomBar.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
                 R.id.itemHome -> {
-
+                    val intent = Intent(this, HomeActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    startActivity(intent)
                     true
                 }
                 R.id.itemSearch -> {
-                    val intent = Intent(this,SearchActivity::class.java)
+                    val intent = Intent(this, SearchActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                     startActivity(intent)
                     true
@@ -35,13 +39,12 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.itemProfile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                    startActivity(intent)
+
                     true
                 }
                 else -> false
             }
+
         }
 
 

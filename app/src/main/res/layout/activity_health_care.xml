@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CAE7B9"
+    tools:context=".HealthCareActivity">
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded"
+        app:itemIconTint="@color/nav_icon_color"
+        app:itemTextColor="@color/nav_icon_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu" />
+
+    <TextView
+        android:id="@+id/healthcare_tx_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/kodchasan"
+        android:text="@string/healthCare_tx1"
+        android:textColor="#494949"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/healthcare_tx_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:fontFamily="@font/kodchasan"
+        android:text="@string/healthCare_date"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/healthcare_tx_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/healthcare_tx_1"
+        app:layout_constraintVertical_bias="0.08" />
+
+    <TextView
+        android:id="@+id/healthcare_tx_3"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_marginStart="73dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/happy"
+        app:layout_constraintBottom_toTopOf="@+id/healthcare_tx_5"
+        app:layout_constraintEnd_toStartOf="@+id/healthcare_tx_4"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/healthcare_tx_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:fontFamily="@font/kodchasan"
+        android:text="@string/healthCare_tx5"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/healthcare_tx_7"
+        app:layout_constraintEnd_toStartOf="@+id/healthcare_tx_6"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/healthcare_tx_4"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/sad"
+        app:layout_constraintBottom_toTopOf="@+id/healthcare_tx_6"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/healthcare_tx_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="120dp"
+        android:fontFamily="@font/kodchasan"
+        android:text="@string/healthCare_tx6"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/healthcare_tx_7"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/healthcare_tx_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:fontFamily="@font/kodchasan"
+        android:text="@string/healthCare_tx7"
+        android:textColor="#818181"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

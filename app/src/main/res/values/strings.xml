@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">appHWTTM</string>
     <string name="ss_picture">ss_picture</string>
-    <string name="thai_traditional_medicine_healthcare">Thai Traditional Medicine Healthcare</string>
+    <string name="thai_traditional_medicine_healthCare">Thai Traditional Medicine Healthcare</string>
     <string name="th_name_ss">ดูแลสุขภาพด้วยแพทย์แผนไทย</string>
     <string name="top_bar_text">TEST</string>
     <string name="home">HOME</string>
@@ -19,5 +19,17 @@
     <string name="home_tx1">ดูแลสุขภาพด้วยแพทย์แผนไทย</string>
     <string name="home_tx2">วันนี้คุณสบายดีไหม ?</string>
     <string name="home_tx4">แตะที่ icon</string>
+
+    <string name="healthCare_tx1">บันทึกข้อมูลสุขภาพ</string>
+    <string name="healthCare_date">1 มกราคม 2020</string>
+    <string name="healthCare_tx5">ฉันสบายดี</string>
+    <string name="healthCare_tx6">ฉันไม่ค่อยสบาย</string>
+    <string name="healthCare_tx7">แตะที่ icon</string>
+
+    <string name="profile_tx_1">ชื่อ นามสกุล</string>
+    <string name="profile_tx_2">ปีเกิด</string>
+    <string name="profile_tx_3">โรคประจำตัว</string>
+    <string name="profile_btn">ดูประวัติสุขภาพ</string>
+
 
 </resources>

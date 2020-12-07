@@ -21,7 +21,7 @@ class SearchActivity : AppCompatActivity() {
         bottomBar.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.itemHome -> {
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, HomeActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                     startActivity(intent)
                     true
@@ -31,18 +31,19 @@ class SearchActivity : AppCompatActivity() {
                     true
                 }
                 R.id.itemHealthCare -> {
-
+                    val intent = Intent(this, HealthCareActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    startActivity(intent)
                     true
                 }
                 R.id.itemProfile -> {
-
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    startActivity(intent)
                     true
                 }
                 else -> false
             }
-
-
-
 
         }
 
