@@ -3,12 +3,16 @@ package com.example.apphwttm
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 
 class SearchActivity : AppCompatActivity() {
 
 
     private lateinit var bottomBar: BottomNavigationView
+    private lateinit var diseaseSearchBtn : TextView
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,10 +48,16 @@ class SearchActivity : AppCompatActivity() {
                 }
                 else -> false
             }
-
         }
 
 
+
+        diseaseSearchBtn = findViewById(R.id.myTxv_5)
+        diseaseSearchBtn.setOnClickListener {
+            var intent = Intent(this,SecActivityDiseaseSearch::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
 
     }
 
