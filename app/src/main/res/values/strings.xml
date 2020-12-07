@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">appHWTTM</string>
+    <string name="ss_picture">ss_picture</string>
+    <string name="thai_traditional_medicine_healthcare">Thai Traditional Medicine Healthcare</string>
+    <string name="th_name_ss">ดูแลสุขภาพด้วยแพทย์แผนไทย</string>
+    <string name="top_bar_text">TEST</string>
+    <string name="home">HOME</string>
+    <string name="search_tx_1">คุณไม่สบายตรงไหน</string>
+    <string name="search_tx_2">ศรีษะ ▶</string>
+    <string name="search_tx_3">ลำตัว ▶</string>
+    <string name="search_tx_4">ลำตัวส่วนล่าง ▶</string>
+
+    <string name="search_tx_5">ค้นหาอาการ ▶</string>
+    <string name="search_tx_6">ค้นหาการปฐมพยาบาลเบื้องต้น ▶</string>
+    <string name="search_tx_7">ค้นหาสมุนไพร ▶</string>
+    <string name="search_tx_8">แตะที่ข้อความ</string>
+    <string name="body_picture">body_picture</string>
+
+    <string name="home_tx1">ดูแลสุขภาพด้วยแพทย์แผนไทย</string>
+    <string name="home_tx2">วันนี้คุณสบายดีไหม ?</string>
+    <string name="home_tx4">แตะที่ icon</string>
+
+</resources>
