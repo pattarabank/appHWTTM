@@ -23,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.itemSearch -> {
-                    val intent = Intent(this,SearchActivity::class.java)
+                    val intent = Intent(this, SearchActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                     startActivity(intent)
                     true
