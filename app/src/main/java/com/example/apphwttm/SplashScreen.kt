@@ -16,11 +16,21 @@ class SplashScreen : AppCompatActivity() {
 //            startActivity(intent)
 //            finish()
 //        }, 3000)
+
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            // Your Code
+//            val intent = Intent(this, HomeActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }, 3000)
+
+        //test
         Handler(Looper.getMainLooper()).postDelayed({
             // Your Code
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)
+
     }
 }
