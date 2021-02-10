@@ -30,9 +30,34 @@ class RegisterActivity : AppCompatActivity() {
 
         outlinedButton.setOnClickListener {
             var name = nameTextField.editText?.text.toString()
+            val sharedPreferencesName = getSharedPreferences("sharedPrefsName", Context.MODE_PRIVATE)
+            val editorName = sharedPreferencesName.edit()
+            editorName.apply {
+                putString("sharedPrefsName", name)
+            }.apply()
+
+
             var bDate = birthDateTextField.editText?.text.toString()
+            val sharedPreferencesBDate = getSharedPreferences("sharedPrefs_bDate", Context.MODE_PRIVATE)
+            val editorBDate = sharedPreferencesBDate.edit()
+            editorBDate.apply {
+                putString("sharedPrefs_bDate", bDate)
+            }
+
+
             var disease = diseaseTextField.editText?.text.toString()
+            val sharedPreferencesDisease = getSharedPreferences("sharedPrefsDisease", Context.MODE_PRIVATE)
+            val editorDisease = sharedPreferencesDisease.edit()
+            editorDisease.apply {
+                putString("sharedPrefsDisease", disease)
+            }
+
             //Snackbar.make(it, "$name $bDate $disease", Snackbar.LENGTH_SHORT).show()
+
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+
         }
 
 

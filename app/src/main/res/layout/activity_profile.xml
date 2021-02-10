@@ -48,19 +48,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/profile_tx_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="53dp"
-        android:layout_marginEnd="275dp"
-        android:layout_marginBottom="112dp"
-        android:fontFamily="@font/kodchasan"
-        android:text="@string/profile_tx_3"
-        app:layout_constraintBottom_toTopOf="@+id/profile_btn_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/profile_tx_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,6 +57,19 @@
         android:fontFamily="@font/kodchasan"
         android:text="@string/profile_tx_2"
         app:layout_constraintBottom_toTopOf="@+id/profile_tx_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/profile_tx_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="275dp"
+        android:layout_marginBottom="112dp"
+        android:fontFamily="@font/kodchasan"
+        android:text="@string/profile_tx_3"
+        app:layout_constraintBottom_toTopOf="@+id/profile_btn_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -88,5 +88,16 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/profileUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/profile_tx_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_tx_1"
+        app:layout_constraintVertical_bias="0.513" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
