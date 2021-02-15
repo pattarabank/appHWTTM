@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.w3c.dom.Text
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -17,11 +18,23 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-
+        //ใส่ข้อมูลผู้ใช้
         val sharedPreferencesName = getSharedPreferences("sharedPrefsName", Context.MODE_PRIVATE)
         val getUserName = sharedPreferencesName.getString("sharedPrefsName", null)
         val userNameTextView : TextView = findViewById(R.id.profileUserName)
         userNameTextView.text = getUserName
+
+
+        val sharedPreferencesBirthDate = getSharedPreferences("sharedPrefs_bDate",Context.MODE_PRIVATE)
+        val getUserBirthDate = sharedPreferencesBirthDate.getString("sharedPrefs_bDate",null)
+        val userBirthDateTextView : TextView = findViewById(R.id.profileBirthDate)
+        userBirthDateTextView.text = getUserBirthDate
+
+        val sharedPreferencesDisease = getSharedPreferences("sharedPrefsDisease",Context.MODE_PRIVATE)
+        val getUserDisease = sharedPreferencesDisease.getString("sharedPrefsDisease",null)
+        val userDiseaseTextView : TextView = findViewById(R.id.profileDisease)
+        userDiseaseTextView.text = getUserDisease
+
 
 
         bottomBar = findViewById(R.id.bottom_navigation)

@@ -42,7 +42,7 @@ class RegisterActivity : AppCompatActivity() {
             val editorBDate = sharedPreferencesBDate.edit()
             editorBDate.apply {
                 putString("sharedPrefs_bDate", bDate)
-            }
+            }.apply()
 
 
             var disease = diseaseTextField.editText?.text.toString()
@@ -50,7 +50,7 @@ class RegisterActivity : AppCompatActivity() {
             val editorDisease = sharedPreferencesDisease.edit()
             editorDisease.apply {
                 putString("sharedPrefsDisease", disease)
-            }
+            }.apply()
 
             //Snackbar.make(it, "$name $bDate $disease", Snackbar.LENGTH_SHORT).show()
 
