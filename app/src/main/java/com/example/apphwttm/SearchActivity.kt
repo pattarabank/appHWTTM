@@ -48,7 +48,7 @@ class SearchActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
+        //////
 
 
         diseaseSearchBtn = findViewById(R.id.myTxv_5)

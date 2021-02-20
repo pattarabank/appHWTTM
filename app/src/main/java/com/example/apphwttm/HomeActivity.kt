@@ -3,12 +3,13 @@ package com.example.apphwttm
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {//หน้าแรก
 
     private lateinit var bottomBar : BottomNavigationView
-
+    private lateinit var iconSmile : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,15 @@ class HomeActivity : AppCompatActivity() {
                 }
                 else -> false
             }
+        }
+
+        ///////
+
+        iconSmile = findViewById(R.id.home_tx_3)
+        iconSmile.setOnClickListener {
+            val intent = Intent(this,HealthCareActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
         }
 
 
