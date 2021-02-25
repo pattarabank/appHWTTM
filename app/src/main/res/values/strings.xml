@@ -37,6 +37,7 @@
     <string name="profile_btn">ดูประวัติสุขภาพ</string>
     <string name="dds_detail_tx">รายละเอียด</string>
     <string name="dds_treat_tx">วิธีการรักษา</string>
+    <string name="have_a_good_day">Have a good day</string>
 
 
 </resources>

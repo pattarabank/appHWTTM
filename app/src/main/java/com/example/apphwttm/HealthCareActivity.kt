@@ -5,14 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 import java.time.LocalDate
 
 class HealthCareActivity : AppCompatActivity() {
 
 
     private lateinit var bottomBar: BottomNavigationView
-    private lateinit var healthcare_date : TextView
-
+    private lateinit var healthcareDate: TextView
+    private lateinit var iconWell: TextView//ไอคอนยิ้ม
+    private lateinit var iconSick: TextView//ไอคอนหน้าบึ้ง
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,23 +51,31 @@ class HealthCareActivity : AppCompatActivity() {
             }
         }
 
+        iconWell = findViewById<TextView>(R.id.healthcare_tx_3)
+        iconWell.setOnClickListener {
+            //Snackbar.make(it, "am fine", Snackbar.LENGTH_SHORT).show()
+            val intent = Intent(this,AmFineActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
+        iconSick = findViewById<TextView>(R.id.healthcare_tx_4)
+        iconSick.setOnClickListener {
+            Snackbar.make(it, "not fine", Snackbar.LENGTH_SHORT).show()
 
-
-
-
+        }
 
     }
 
-    private fun setHealthCareDate(){
-        var day : String
-        var month : String
-        var year : String
+    private fun setHealthCareDate() {
+        var day: String
+        var month: String
+        var year: String
         val date = LocalDate.now().toString().split("-")
         day = date[2]
         year = (date[0].toInt() + 543).toString()
         month = date[1]
         var monthText = ""
-        when(month){
+        when (month) {
             "01" -> monthText = "มกราคม"
             "02" -> monthText = "กุมภาพันธ์"
             "03" -> monthText = "มีนาคม"
@@ -82,10 +92,10 @@ class HealthCareActivity : AppCompatActivity() {
                 monthText = "ธันวาคม"
             }
         }
-        healthcare_date = findViewById(R.id.healthcare_tx_2)
-        healthcare_date.text = day +" "+ monthText +" "+ year
+        healthcareDate = findViewById(R.id.healthcare_tx_2)
+        val toDay = "$day $monthText $year"
+        healthcareDate.text = toDay
     }
-
 
 
 }

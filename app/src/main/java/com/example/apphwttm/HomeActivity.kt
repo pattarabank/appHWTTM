@@ -47,7 +47,7 @@ class HomeActivity : AppCompatActivity() {//หน้าแรก
 
         ///////
 
-        iconSmile = findViewById(R.id.home_tx_3)
+        iconSmile = findViewById(R.id.amfine_icon)
         iconSmile.setOnClickListener {
             val intent = Intent(this,HealthCareActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)

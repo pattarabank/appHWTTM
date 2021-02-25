@@ -8,7 +8,7 @@
     tools:context=".HomeActivity">
 
     <TextView
-        android:id="@+id/home_tx_3"
+        android:id="@+id/amfine_icon"
         android:layout_width="150sp"
         android:layout_height="150sp"
         android:layout_marginBottom="128dp"
@@ -26,7 +26,7 @@
         android:fontFamily="@font/kodchasan"
         android:text="@string/home_tx2"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/home_tx_3"
+        app:layout_constraintBottom_toTopOf="@+id/amfine_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
