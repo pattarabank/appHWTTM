@@ -40,7 +40,7 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
         }
 
         //setup recycle view
-        val searchListDisease = findViewById<RecyclerView>(R.id.myDisease_recylerview_Disease)
+        val searchListDisease = findViewById<RecyclerView>(R.id.search_RecyclerView_disease)
         searchListDisease.hasFixedSize()
         searchListDisease.layoutManager = LinearLayoutManager(this)
         searchListDisease.adapter = searchListDiseaseAdapter
@@ -56,12 +56,11 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
             }
         })
 
-
     }
 
     private fun searchInFirestore(searchText: String) {
-        firebaseFirestore.collection("โรค")
-            .whereArrayContains("search_keywords", searchText)
+        firebaseFirestore.collection("symptom")
+            .whereArrayContains("keyword", searchText)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     searchListDisease = it.result!!.toObjects(DiseaseSearchModel::class.java)

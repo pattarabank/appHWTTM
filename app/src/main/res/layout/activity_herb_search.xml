@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CAE7B9"
-    tools:context=".SecActivityDiseaseSearch">
-
+    tools:context=".searchPage.ActivityHerbSearch">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -25,19 +23,18 @@
             android:background="@drawable/left_arrow"
             android:textColor="#616161" />
         <TextView
-            android:id="@+id/textViewDisease"
+            android:id="@+id/textViewHerb1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="@font/kodchasan"
             android:gravity="center"
-            android:text="@string/top_bar_text_disease_search"
+            android:text="@string/top_bar_text_herb_search"
             android:textStyle="bold" />
     </LinearLayout>
 
-
     <EditText
-        android:id="@+id/search_field_Disease"
+        android:id="@+id/search_field_Herb"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -53,13 +50,12 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/search_RecyclerView_disease"
+        android:id="@+id/search_RecyclerView_herb"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_field_Disease" />
-
+        app:layout_constraintTop_toBottomOf="@id/search_field_Herb" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.apphwttm.searchPage.ActivityHerbSearch
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SearchActivity : AppCompatActivity() {
@@ -12,6 +13,7 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var bottomBar: BottomNavigationView
     private lateinit var diseaseSearchBtn : TextView
     private lateinit var firstaidSearchBtn : TextView
+    private lateinit var herbSearchBtn : TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,6 +63,13 @@ class SearchActivity : AppCompatActivity() {
         firstaidSearchBtn = findViewById(R.id.myTxv_6)
         firstaidSearchBtn.setOnClickListener {
             var intent = Intent(this,ActivityFirstAidSearch::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
+
+        herbSearchBtn = findViewById(R.id.myTxv_7)
+        herbSearchBtn.setOnClickListener {
+            var intent = Intent(this,ActivityHerbSearch::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }

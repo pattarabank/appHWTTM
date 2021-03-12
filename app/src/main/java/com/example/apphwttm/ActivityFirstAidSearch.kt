@@ -21,7 +21,7 @@ class ActivityFirstAidSearch : AppCompatActivity() {
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
     private val firebaseFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    private var searchListFirstAid : List<FirstAidModel> = ArrayList()
+    private var searchListFirstAid: List<FirstAidModel> = ArrayList()
     private val searchListFirstAidAdapter = SearchListFirstAidAdapter(searchListFirstAid)
 
     private lateinit var firstaidSearchBackBtn: TextView
@@ -58,8 +58,8 @@ class ActivityFirstAidSearch : AppCompatActivity() {
 
 
     private fun searchInFirestore(searchText: String) {
-        firebaseFirestore.collection("โรค")
-            .whereArrayContains("search_keywords", searchText)
+        firebaseFirestore.collection("first aid")
+            .whereArrayContains("keyword", searchText)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     searchListFirstAid = it.result!!.toObjects(FirstAidModel::class.java)

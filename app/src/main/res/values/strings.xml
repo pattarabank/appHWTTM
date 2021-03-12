@@ -8,6 +8,7 @@
     <string name="top_bar_text">TEST</string>
     <string name="top_bar_text_disease_search">ค้นหาอาการ</string>
     <string name="top_bar_text_firstaid_search">ค้นหาการปฐมพยาบาลเบื้องต้น</string>
+    <string name="top_bar_text_herb_search">ค้นหาสมุนไพร</string>
 
     <string name="home">HOME</string>
     <string name="search_tx_1">คุณไม่สบายตรงไหน</string>
