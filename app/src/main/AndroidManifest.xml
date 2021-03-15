@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppHWTTM">
-        <activity android:name=".searchPage.ActivityHerbSearch"></activity>
+        <activity android:name=".searchPage.herb.ActivityHerbSearch"></activity>
         <activity android:name=".AmFineActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ActivityFirstAidSearch" />

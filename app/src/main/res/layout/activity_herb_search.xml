@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".searchPage.ActivityHerbSearch">
+    tools:context=".searchPage.herb.ActivityHerbSearch">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <TextView
-            android:id="@+id/myPreviousIconDisease"
+            android:id="@+id/myPreviousIconHerb"
             android:layout_width="16sp"
             android:layout_height="22sp"
             android:layout_margin="15sp"
