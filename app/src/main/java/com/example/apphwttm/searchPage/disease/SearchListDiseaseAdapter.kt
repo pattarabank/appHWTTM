@@ -1,10 +1,11 @@
-package com.example.apphwttm
+package com.example.apphwttm.searchPage.disease
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.apphwttm.R
 
 class SearchListDiseaseAdapter(var diseaseSearchModelList: List<DiseaseSearchModel>) :
     RecyclerView.Adapter<SearchListDiseaseAdapter.SearchListDiseaseViewHolder>() {

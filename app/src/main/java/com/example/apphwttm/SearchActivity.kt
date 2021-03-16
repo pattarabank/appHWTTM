@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.apphwttm.searchPage.disease.SecActivityDiseaseSearch
+import com.example.apphwttm.searchPage.firstaid.ActivityFirstAidSearch
 import com.example.apphwttm.searchPage.herb.ActivityHerbSearch
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -55,14 +57,14 @@ class SearchActivity : AppCompatActivity() {
 
         diseaseSearchBtn = findViewById(R.id.myTxv_5)
         diseaseSearchBtn.setOnClickListener {
-            var intent = Intent(this,SecActivityDiseaseSearch::class.java)
+            var intent = Intent(this, SecActivityDiseaseSearch::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
 
         firstaidSearchBtn = findViewById(R.id.myTxv_6)
         firstaidSearchBtn.setOnClickListener {
-            var intent = Intent(this,ActivityFirstAidSearch::class.java)
+            var intent = Intent(this, ActivityFirstAidSearch::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }

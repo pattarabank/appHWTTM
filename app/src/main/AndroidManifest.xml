@@ -12,10 +12,10 @@
         <activity android:name=".searchPage.herb.ActivityHerbSearch"></activity>
         <activity android:name=".AmFineActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".ActivityFirstAidSearch" />
+        <activity android:name=".searchPage.firstaid.ActivityFirstAidSearch" />
         <activity android:name=".SecActivityFirstAidSearch" />
         <activity android:name=".DetailDiseaseSearch" />
-        <activity android:name=".SecActivityDiseaseSearch" />
+        <activity android:name=".searchPage.disease.SecActivityDiseaseSearch" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".HealthCareActivity" />
         <activity android:name=".HomeActivity" />

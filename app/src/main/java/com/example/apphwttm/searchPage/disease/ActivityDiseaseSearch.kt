@@ -1,4 +1,4 @@
-package com.example.apphwttm
+package com.example.apphwttm.searchPage.disease
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +10,8 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.apphwttm.R
+import com.example.apphwttm.SearchActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -59,7 +61,7 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
     }
 
     private fun searchInFirestore(searchText: String) {
-        firebaseFirestore.collection("symptom")
+        firebaseFirestore.collection(" symptom")
             .whereArrayContains("keyword", searchText)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {

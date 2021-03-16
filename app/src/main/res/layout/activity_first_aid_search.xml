@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CAE7B9"
-    tools:context=".ActivityFirstAidSearch">
+    tools:context=".searchPage.firstaid.ActivityFirstAidSearch">
 
 
     <LinearLayout
