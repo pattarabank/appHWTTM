@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
+import com.google.android.material.snackbar.Snackbar
 
 class SearchListDiseaseAdapter(var diseaseSearchModelList: List<DiseaseSearchModel>) :
     RecyclerView.Adapter<SearchListDiseaseAdapter.SearchListDiseaseViewHolder>() {
@@ -25,9 +27,17 @@ class SearchListDiseaseAdapter(var diseaseSearchModelList: List<DiseaseSearchMod
     }
 
     class SearchListDiseaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private var itemDetail = ""
         fun bind(diseaseSearchModel: DiseaseSearchModel) {
             itemView.findViewById<TextView>(R.id.disease_tv_1).text = diseaseSearchModel.name
+             itemDetail = diseaseSearchModel.des
         }
+        init {
+            itemView.setOnClickListener { v:View ->
+                Toast.makeText(v.context,itemDetail,Toast.LENGTH_SHORT).show()
+            }
+        }
+
     }
 
 
