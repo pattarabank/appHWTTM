@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppHWTTM">
-        <activity android:name=".searchPage.herb.ActivityHerbSearch"></activity>
+        <activity android:name=".searchPage.herb.DetailHerbSearch"></activity>
+        <activity android:name=".searchPage.firstaid.DetailFirstAidSearch" />
+        <activity android:name=".searchPage.herb.ActivityHerbSearch" />
         <activity android:name=".AmFineActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".searchPage.firstaid.ActivityFirstAidSearch" />
         <activity android:name=".SecActivityFirstAidSearch" />
-        <activity android:name=".DetailDiseaseSearch" />
+        <activity android:name=".searchPage.disease.DetailDiseaseSearch" />
         <activity android:name=".searchPage.disease.SecActivityDiseaseSearch" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".HealthCareActivity" />

@@ -1,5 +1,6 @@
 package com.example.apphwttm.searchPage.firstaid
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,8 +29,20 @@ class SearchListFirstAidAdapter(var firstAidModelList: List<FirstAidModel>) :
     }
 
     class SearchListFirstAidViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private var itemName = ""
+        private var itemDescription = ""
         fun bind(firstAidModel: FirstAidModel) {
             itemView.findViewById<TextView>(R.id.firstaid_tv_1).text = firstAidModel.name
+            itemName = firstAidModel.name
+            itemDescription = firstAidModel.des
+        }
+        init {
+            itemView.setOnClickListener { v:View ->
+                val intent = Intent(itemView.context,DetailFirstAidSearch::class.java)
+                intent.putExtra("send_to_detail_firstaid_name",itemName)
+                intent.putExtra("send_to_detail_firstaid_des",itemDescription)
+                itemView.context.startActivity(intent)
+            }
         }
     }
 

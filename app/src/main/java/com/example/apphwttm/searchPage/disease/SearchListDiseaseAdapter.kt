@@ -1,13 +1,12 @@
 package com.example.apphwttm.searchPage.disease
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
-import com.google.android.material.snackbar.Snackbar
 
 class SearchListDiseaseAdapter(var diseaseSearchModelList: List<DiseaseSearchModel>) :
     RecyclerView.Adapter<SearchListDiseaseAdapter.SearchListDiseaseViewHolder>() {
@@ -27,14 +26,24 @@ class SearchListDiseaseAdapter(var diseaseSearchModelList: List<DiseaseSearchMod
     }
 
     class SearchListDiseaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var itemDetail = ""
+        private var itemDescription = ""
+        private var itemName = ""
         fun bind(diseaseSearchModel: DiseaseSearchModel) {
             itemView.findViewById<TextView>(R.id.disease_tv_1).text = diseaseSearchModel.name
-             itemDetail = diseaseSearchModel.des
+            itemName = diseaseSearchModel.name
+            itemDescription = diseaseSearchModel.des
         }
         init {
             itemView.setOnClickListener { v:View ->
-                Toast.makeText(v.context,itemDetail,Toast.LENGTH_SHORT).show()
+                //Toast.makeText(v.context,itemDetail,Toast.LENGTH_SHORT).show()
+                //intent eiei
+                val intent = Intent(itemView.context, DetailDiseaseSearch::class.java)
+                intent.putExtra("send_to_detail_disease_name",itemName)
+                intent.putExtra("send_to_detail_disease_des",itemDescription)
+
+                itemView.context.startActivity(intent)
+
+
             }
         }
 

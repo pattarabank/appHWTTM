@@ -1,5 +1,6 @@
 package com.example.apphwttm.searchPage.herb
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,8 +26,20 @@ class SearchListHerbAdapter(var herbSearchModelList: List<HerbSearchModel>) :
     }
 
     class SearchListHerbViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private var itemName = ""
+        private var itemDescription = ""
         fun bind(herbSearchModel: HerbSearchModel) {
             itemView.findViewById<TextView>(R.id.herb_tv_1).text = herbSearchModel.name
+            itemName = herbSearchModel.name
+            itemDescription = herbSearchModel.des
+        }
+        init {
+            itemView.setOnClickListener{ v:View ->
+                val intent = Intent(itemView.context,DetailHerbSearch::class.java)
+                intent.putExtra("send_to_detail_herb_name",itemName)
+                intent.putExtra("send_to_detail_herb_des",itemDescription)
+                itemView.context.startActivity(intent)
+            }
         }
     }
 

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CAE7B9"
-    tools:context=".searchPage.disease.DetailDiseaseSearch">
+    tools:context=".searchPage.firstaid.DetailFirstAidSearch">
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -18,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/myPreviousIconDisease"
+            android:id="@+id/myPreviousIconFirstaid"
             android:layout_width="16sp"
             android:layout_height="22sp"
             android:layout_margin="15sp"
@@ -26,7 +27,7 @@
             android:textColor="#616161" />
 
         <TextView
-            android:id="@+id/textViewDisease"
+            android:id="@+id/textViewFirstaid"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -37,7 +38,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/detail_disease_name"
+        android:id="@+id/detail_firstaid_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/kodchasan"
@@ -55,11 +56,12 @@
         android:fillViewport="true"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_disease_name">
+        app:layout_constraintTop_toBottomOf="@+id/detail_firstaid_name">
 
         <TextView
-            android:id="@+id/detail_disease_des"
+            android:id="@+id/detail_firstaid_des"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
