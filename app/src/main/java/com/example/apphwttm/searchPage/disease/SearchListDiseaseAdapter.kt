@@ -43,7 +43,6 @@ class SearchListDiseaseAdapter(var diseaseSearchModelList: List<DiseaseSearchMod
 
                 itemView.context.startActivity(intent)
 
-
             }
         }
 

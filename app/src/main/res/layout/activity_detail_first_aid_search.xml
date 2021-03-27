@@ -33,7 +33,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/kodchasan"
             android:gravity="center"
-            android:text="@string/top_bar_text_disease_search"
+            android:text="@string/top_bar_text_firstaid_search"
             android:textStyle="bold" />
     </LinearLayout>
 

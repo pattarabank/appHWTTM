@@ -1,9 +1,10 @@
-package com.example.apphwttm
+package com.example.apphwttm.healthRecord
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.apphwttm.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import java.time.LocalDate
@@ -54,13 +55,15 @@ class HealthCareActivity : AppCompatActivity() {
         iconWell = findViewById<TextView>(R.id.healthcare_tx_3)
         iconWell.setOnClickListener {
             //Snackbar.make(it, "am fine", Snackbar.LENGTH_SHORT).show()
-            val intent = Intent(this,AmFineActivity::class.java)
+            val intent = Intent(this, AmFineActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
         iconSick = findViewById<TextView>(R.id.healthcare_tx_4)
         iconSick.setOnClickListener {
-            Snackbar.make(it, "not fine", Snackbar.LENGTH_SHORT).show()
+            //Snackbar.make(it, "not fine", Snackbar.LENGTH_SHORT).show()
+            val intent = Intent(this,AreYouOkActivity::class.java)
+            startActivity(intent)
 
         }
 

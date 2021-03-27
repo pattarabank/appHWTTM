@@ -5,8 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.apphwttm.healthRecord.HealthCareActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import org.w3c.dom.Text
 
 class ProfileActivity : AppCompatActivity() {
 

@@ -3,7 +3,7 @@
     <string name="ss_picture">ss_picture</string>
     <string name="thai_traditional_medicine_healthCare">Thai Traditional Medicine Healthcare</string>
     <string name="th_name_ss">ดูแลสุขภาพด้วยแพทย์แผนไทย</string>
-    <string name="search_here">ค้นหาที่นี่...</string>
+    <string name="search_here">ค้นหาที่นี่…</string>
 
     <string name="top_bar_text">TEST</string>
     <string name="top_bar_text_disease_search">ค้นหาอาการ</string>
@@ -39,6 +39,8 @@
     <string name="dds_detail_tx">รายละเอียด</string>
     <string name="dds_treat_tx">วิธีการรักษา</string>
     <string name="have_a_good_day">Have a good day</string>
+    <string name="are_you_ok">คุณเป็นอะไรมา</string>
+    <string name="btn_save">บันทึก</string>
 
 
 </resources>

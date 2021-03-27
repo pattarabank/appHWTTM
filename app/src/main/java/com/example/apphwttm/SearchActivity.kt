@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.apphwttm.healthRecord.HealthCareActivity
 import com.example.apphwttm.searchPage.disease.SecActivityDiseaseSearch
 import com.example.apphwttm.searchPage.firstaid.ActivityFirstAidSearch
 import com.example.apphwttm.searchPage.herb.ActivityHerbSearch

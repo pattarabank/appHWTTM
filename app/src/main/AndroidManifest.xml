@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppHWTTM">
-        <activity android:name=".searchPage.herb.DetailHerbSearch"></activity>
+        <activity android:name=".healthRecord.AreYouOkActivity"></activity>
+        <activity android:name=".searchPage.herb.DetailHerbSearch" />
         <activity android:name=".searchPage.firstaid.DetailFirstAidSearch" />
         <activity android:name=".searchPage.herb.ActivityHerbSearch" />
         <activity android:name=".AmFineActivity" />
@@ -19,7 +20,7 @@
         <activity android:name=".searchPage.disease.DetailDiseaseSearch" />
         <activity android:name=".searchPage.disease.SecActivityDiseaseSearch" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".HealthCareActivity" />
+        <activity android:name=".healthRecord.HealthCareActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".SplashScreen">
