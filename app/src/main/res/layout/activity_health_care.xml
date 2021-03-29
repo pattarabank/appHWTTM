@@ -86,7 +86,7 @@
         android:id="@+id/healthcare_tx_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="84dp"
+        android:layout_marginEnd="85dp"
         android:layout_marginBottom="120dp"
         android:fontFamily="@font/kodchasan"
         android:text="@string/healthCare_tx6"

@@ -18,17 +18,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/myPreviousIconAreyouok"
-            android:layout_width="16sp"
-            android:layout_height="22sp"
-            android:layout_margin="15sp"
-            android:background="@drawable/left_arrow"
-            android:textColor="#616161" />
-
-        <TextView
             android:id="@+id/textViewAreyouok"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="16sp"
             android:layout_weight="1"
             android:fontFamily="@font/kodchasan"
             android:gravity="center"
@@ -85,21 +78,34 @@
         android:id="@+id/areyouokRecycler"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="14sp"
+        android:padding="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/areyouokChipgroup" />
 
 
     <Button
+        android:id="@+id/button"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/btn_save"
         android:textColor="#222222"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/myPreviousIconAreyouok"
+        android:layout_width="16sp"
+        android:layout_height="22sp"
+        android:layout_margin="17sp"
+        android:background="@drawable/left_arrow"
+        android:textColor="#616161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

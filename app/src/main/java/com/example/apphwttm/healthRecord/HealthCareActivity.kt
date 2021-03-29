@@ -62,7 +62,8 @@ class HealthCareActivity : AppCompatActivity() {
         iconSick = findViewById<TextView>(R.id.healthcare_tx_4)
         iconSick.setOnClickListener {
             //Snackbar.make(it, "not fine", Snackbar.LENGTH_SHORT).show()
-            val intent = Intent(this,AreYouOkActivity::class.java)
+            val intent = Intent(this, AreYouOkActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
 
         }

@@ -16,17 +16,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:id="@+id/myPreviousIconHerb"
-            android:layout_width="16sp"
-            android:layout_height="22sp"
-            android:layout_margin="15sp"
-            android:background="@drawable/left_arrow"
-            android:textColor="#616161" />
+
         <TextView
             android:id="@+id/textViewHerb1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="16sp"
             android:layout_weight="1"
             android:fontFamily="@font/kodchasan"
             android:gravity="center"
@@ -58,5 +53,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_field_Herb" />
+
+    <TextView
+        android:id="@+id/myPreviousIconHerb"
+        android:layout_width="16sp"
+        android:layout_height="22sp"
+        android:layout_margin="17sp"
+        android:background="@drawable/left_arrow"
+        android:textColor="#616161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
