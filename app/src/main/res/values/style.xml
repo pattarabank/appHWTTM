@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MonthPickerDialogStyle" >
+        <item name="monthBgColor">#BEE7B8</item>
+        <item name="monthBgSelectedColor">#4C8577</item>
+        <item name="monthFontColorSelected">@color/white</item>
+        <item name="monthFontColorNormal">@color/white</item>
+        <item name="monthFontColorDisabled">@color/white</item>
+
+        <item name="headerBgColor">#8BC34A</item>
+        <item name="headerFontColorSelected">#fff</item>
+        <item name="headerFontColorNormal">#85FFFFFF</item>
+        <item name="headerTitleColor">#fff</item>
+
+        <item name="dialogActionButtonColor">#8BC34A</item>
+    </style>
+</resources>
+<!--    #CAE7B9-->
+<!--    #8BC34A-->
