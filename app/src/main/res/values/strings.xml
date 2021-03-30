@@ -44,6 +44,10 @@
     <string name="regis_start_btn">เริ่มต้น</string>
     <string name="regis_welcome_txt">ยินดีต้อนรับ</string>
     <string name="regis_txt_suggest">แตะที่รูปปฏิทิน</string>
+    <string name="are_you_ok_header">บันทึกข้อมูลสุขภาพ</string>
+    <string name="are_you_ok_today_txt">วันนี้</string>
+    <string name="are_you_ok_btn_txt1">ดูโรคที่เกี่ยวข้องกับอาการ</string>
+    <string name="are_you_ok_btn_txt2">บันทึกรายละเอียดเพิ่มเติม</string>
 
 
 </resources>

@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/kodchasan"
             android:gravity="center"
-            android:text="@string/are_you_ok"
+            android:text="@string/are_you_ok_header"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -66,8 +66,9 @@
         android:id="@+id/areyouokChipgroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_field_areyouok">
@@ -85,14 +86,17 @@
         app:layout_constraintTop_toBottomOf="@+id/areyouokChipgroup" />
 
 
-    <Button
-        android:id="@+id/button"
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/button_areyouok"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/btn_save"
-        android:textColor="#222222"
+        android:textAlignment="center"
+        android:textColor="#3E3E3E"
+        android:textSize="14sp"
+        app:backgroundTint="#8BC34A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

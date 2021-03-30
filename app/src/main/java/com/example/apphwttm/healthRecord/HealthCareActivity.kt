@@ -1,5 +1,6 @@
 package com.example.apphwttm.healthRecord
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -52,12 +53,26 @@ class HealthCareActivity : AppCompatActivity() {
             }
         }
 
+
+        val userHealthCareLimitPerDay = getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
+        val isOk = userHealthCareLimitPerDay.getString("userLimitPerDay", null)
+
         iconWell = findViewById<TextView>(R.id.healthcare_tx_3)
         iconWell.setOnClickListener {
             //Snackbar.make(it, "am fine", Snackbar.LENGTH_SHORT).show()
-            val intent = Intent(this, AmFineActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity(intent)
+            if (isOk == null){
+                val userHealthCareLimitPerDay = getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
+                val editLimit = userHealthCareLimitPerDay.edit()
+                editLimit.apply{
+                    putString("userLimitPerDay","full")
+                }.apply()
+                val intent = Intent(this, AmFineActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                startActivity(intent)
+            }else{
+                Snackbar.make(it,"บันทึกได้วันละครั้งนะ",Snackbar.LENGTH_SHORT).show()
+            }
+
         }
         iconSick = findViewById<TextView>(R.id.healthcare_tx_4)
         iconSick.setOnClickListener {

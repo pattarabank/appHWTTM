@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CAE7B9"
+    tools:context=".healthRecord.AreYouOk2Activity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#8BC34A"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewAreyouok2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="16sp"
+            android:layout_weight="1"
+            android:fontFamily="@font/kodchasan"
+            android:gravity="center"
+            android:text="@string/are_you_ok_header"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/myPreviousIconAreyouok2"
+        android:layout_width="16sp"
+        android:layout_height="22sp"
+        android:layout_margin="17sp"
+        android:background="@drawable/left_arrow"
+        android:textColor="#616161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewAre_you_ok_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="14sp"
+        android:fontFamily="@font/kodchasan"
+        android:gravity="center"
+        android:padding="12sp"
+        android:text="@string/are_you_ok_header"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/areyouok_date_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24sp"
+        android:fontFamily="@font/kodchasan"
+        android:text=""
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAre_you_ok_2" />
+
+    <TextView
+        android:id="@+id/areyouok_icon"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_marginTop="24sp"
+        android:background="@drawable/sad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/areyouok_date_txt" />
+
+    <TextView
+        android:id="@+id/areyouok_today_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22sp"
+        android:fontFamily="@font/kodchasan"
+        android:text="@string/are_you_ok_today_txt"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/areyouok_icon" />
+
+    <ListView
+        android:id="@+id/areyouok2_listview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:textAlignment="center"
+        android:divider="@null"
+        android:dividerHeight="0sp"
+        app:layout_constraintBottom_toTopOf="@+id/areyouok2_btn_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/areyouok_today_txt" />
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/areyouok2_btn_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/are_you_ok_btn_txt1"
+        android:textAlignment="center"
+        android:textColor="#3E3E3E"
+        android:textSize="14sp"
+        app:backgroundTint="#8BC34A"
+        app:layout_constraintBottom_toTopOf="@+id/areyouok2_btn_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/areyouok2_btn_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/are_you_ok_btn_txt2"
+        android:textAlignment="center"
+        android:textColor="#3E3E3E"
+        android:textSize="14sp"
+        app:backgroundTint="#8BC34A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

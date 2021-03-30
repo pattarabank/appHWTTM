@@ -18,6 +18,7 @@ import com.example.apphwttm.searchPage.disease.DiseaseSearchModel
 import com.example.apphwttm.searchPage.disease.SearchListDiseaseAdapter
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -34,6 +35,7 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
     private lateinit var myChipGroup: ChipGroup
     private lateinit var backIconAreyouok : TextView
     private var chipArrayList = ArrayList<String>()
+    private lateinit var areYouOkBtn : ExtendedFloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +48,7 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
+
         //setup recycle view
         val search_list = findViewById<RecyclerView>(R.id.areyouokRecycler)
         search_list.hasFixedSize()
@@ -72,6 +75,14 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
                 }
             }
         })
+        areYouOkBtn = findViewById(R.id.button_areyouok)
+        areYouOkBtn.setOnClickListener {
+            val intent = Intent(this,AreYouOk2Activity::class.java)
+            intent.putExtra("are_you_ok_data",chipArrayList)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
+
     }
 
 
