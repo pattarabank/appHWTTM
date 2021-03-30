@@ -31,10 +31,11 @@
 
     <EditText
         android:id="@+id/search_field_Herb"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10sp"
         android:autofillHints=""
-        android:background="#fff"
+        android:background="@drawable/custom_search_bg"
         android:ems="10"
         android:hint="@string/search_here"
         android:inputType="text"
@@ -49,6 +50,8 @@
         android:id="@+id/search_RecyclerView_herb"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="14sp"
+        android:padding="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

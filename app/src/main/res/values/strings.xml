@@ -12,7 +12,7 @@
 
     <string name="home">HOME</string>
     <string name="search_tx_1">คุณไม่สบายตรงไหน</string>
-    <string name="search_tx_2">ศรีษะ ▶</string>
+    <string name="search_tx_2">ศีรษะ ▶</string>
     <string name="search_tx_3">ลำตัว ▶</string>
     <string name="search_tx_4">ลำตัวส่วนล่าง ▶</string>
 
@@ -32,7 +32,7 @@
     <string name="healthCare_tx6">ฉันไม่ค่อยสบาย</string>
     <string name="healthCare_tx7">แตะที่ icon</string>
 
-    <string name="profile_tx_1">ชื่อ นามสกุล</string>
+    <string name="profile_tx_1">ชื่อ</string>
     <string name="profile_tx_2">ปีเกิด</string>
     <string name="profile_tx_3">โรคประจำตัว</string>
     <string name="profile_btn">ดูประวัติสุขภาพ</string>
@@ -41,6 +41,9 @@
     <string name="have_a_good_day">Have a good day</string>
     <string name="are_you_ok">คุณเป็นอะไรมา</string>
     <string name="btn_save">บันทึก</string>
+    <string name="regis_start_btn">เริ่มต้น</string>
+    <string name="regis_welcome_txt">ยินดีต้อนรับ</string>
+    <string name="regis_txt_suggest">แตะที่รูปปฏิทิน</string>
 
 
 </resources>

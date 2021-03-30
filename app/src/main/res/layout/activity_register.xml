@@ -14,9 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="38dp"
         android:layout_marginEnd="16dp"
-        android:hint="ชื่อ"
+        android:hint="@string/profile_tx_1"
         android:textColorHint="#8BC34A"
         app:boxStrokeColor="#CAE7B9"
         app:boxStrokeWidth="0.001sp"
@@ -24,12 +24,15 @@
         app:hintTextColor="#8BC34A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/regis_welcome_txt">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_name_input_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_search_bg" />
+            android:background="@drawable/custom_search_bg"
+            android:fontFamily="@font/kodchasan"
+            android:textAlignment="gravity" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,7 +44,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="ปีเกิด"
+        android:hint="@string/profile_tx_2"
         android:textColorHint="#8BC34A"
         app:boxStrokeColor="#CAE7B9"
         app:boxStrokeWidth="0.001sp"
@@ -62,8 +65,10 @@
             android:id="@+id/test_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:autofillHints=""
             android:background="@drawable/custom_search_bg"
-            android:editable="false" />
+            android:editable="false"
+            android:inputType="none" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,12 +87,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="เริ่มต้น"
+        android:text="@string/regis_start_btn"
         android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
         app:backgroundTint="#8BC34A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regis_txt_year" />
+        app:layout_constraintTop_toBottomOf="@+id/regis_txt_suggest" />
 
     <TextView
         android:id="@+id/user_year_txt"
@@ -101,6 +108,33 @@
         app:layout_constraintEnd_toEndOf="@+id/regis_txt_year"
         app:layout_constraintStart_toStartOf="@+id/regis_txt_year"
         app:layout_constraintTop_toTopOf="@+id/regis_txt_year" />
+
+    <TextView
+        android:id="@+id/regis_welcome_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:fontFamily="@font/kodchasan"
+        android:text="@string/regis_welcome_txt"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/regis_txt_suggest"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/kodchasan"
+        android:gravity="center_horizontal|center_vertical|end"
+        android:text="@string/regis_txt_suggest"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regis_txt_year" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

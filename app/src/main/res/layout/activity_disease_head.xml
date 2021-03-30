@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CAE7B9"
-    tools:context=".searchPage.firstaid.ActivityFirstAidSearch">
+    tools:context=".searchPage.head.DiseaseHeadActivity">
 
 
     <LinearLayout
-        android:id="@+id/linearLayoutFirstaid"
-        android:layout_width="411dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#8BC34A"
         android:orientation="horizontal"
@@ -19,35 +19,20 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textViewFirstaid"
+            android:id="@+id/textViewHead"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="16sp"
             android:layout_weight="1"
             android:fontFamily="@font/kodchasan"
             android:gravity="center"
-            android:text="@string/top_bar_text_firstaid_search"
+            android:text="อาการที่เกี่ยวข้องกับศีรษะ"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/search_field_firstaid"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10sp"
-        android:autofillHints=""
-        android:background="@drawable/custom_search_bg"
-        android:ems="10"
-        android:hint="@string/search_here"
-        android:inputType="text"
-        android:padding="16sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutFirstaid" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myDisease_recylerview_firstaid"
+        android:id="@+id/search_RecyclerView_head"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="14sp"
@@ -55,10 +40,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_field_firstaid" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
-        android:id="@+id/myPreviousIconFirstaid"
+        android:id="@+id/myPreviousIconhead"
         android:layout_width="16sp"
         android:layout_height="22sp"
         android:layout_margin="17sp"

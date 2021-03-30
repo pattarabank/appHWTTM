@@ -27,6 +27,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var regisYearBtn: ExtendedFloatingActionButton
     private lateinit var myCalendar: TextView
     private lateinit var user_year_txt : TextView
+    private lateinit var txt_user_name : TextInputEditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -35,10 +36,31 @@ class RegisterActivity : AppCompatActivity() {
             btnYear()
         }
         regisYearBtn = findViewById(R.id.extended_fab)
-        regisYearBtn.setOnClickListener {
-            //set data to sharedpreference
-        }
         user_year_txt = findViewById(R.id.user_year_txt)
+        txt_user_name = findViewById(R.id.user_name_input_txt)
+        regisYearBtn.setOnClickListener {
+            //save data
+            var name = txt_user_name.text.toString()
+            //Log.d("TESTREGIS",name)
+            val sharedPreferencesName = getSharedPreferences("userName", Context.MODE_PRIVATE)
+            val editorName = sharedPreferencesName.edit()
+            editorName.apply{
+                putString("userName",name)
+            }.apply()
+
+            var year = user_year_txt.text.toString()
+            val sharedPreferencesYear = getSharedPreferences("userYear",Context.MODE_PRIVATE)
+            val editorYear = sharedPreferencesYear.edit()
+            editorYear.apply{
+                putString("userYear",year)
+            }.apply()
+
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+            finish()
+        }
+
 //        val outlinedButton: Button = findViewById(R.id.outlinedButton)
 //        val nameTextField: TextInputLayout = findViewById(R.id.nameTextField)
 //        val birthDateTextField: TextInputLayout = findViewById(R.id.birthDateTextField)
@@ -85,10 +107,10 @@ class RegisterActivity : AppCompatActivity() {
             today.get(Calendar.MONTH)
         )
         builder.setActivatedMonth(Calendar.JANUARY)
-            .setMinYear(1990)
-            .setActivatedYear(today.get(Calendar.YEAR))
-            .setMaxYear(2030)
-            .setTitle("SELECT YEAR")
+            .setMinYear(2484)
+            .setActivatedYear(today.get(Calendar.YEAR)+543)
+            .setMaxYear(today.get(Calendar.YEAR)+543)
+            .setTitle("เลือกปีเกิดของคุณ")
             .showYearOnly()
             .build().show()
     }

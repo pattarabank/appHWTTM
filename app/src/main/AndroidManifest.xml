@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppHWTTM">
-        <activity android:name=".healthRecord.AreYouOkActivity"></activity>
+        <activity android:name=".searchPage.lowerbody.DiseaseLowerBodyActivity"></activity>
+        <activity android:name=".searchPage.head.DiseaseHeadActivity" />
+        <activity android:name=".searchPage.body.DiseaseBodyActivity" />
+        <activity android:name=".healthRecord.AreYouOkActivity" />
         <activity android:name=".searchPage.herb.DetailHerbSearch" />
         <activity android:name=".searchPage.firstaid.DetailFirstAidSearch" />
         <activity android:name=".searchPage.herb.ActivityHerbSearch" />

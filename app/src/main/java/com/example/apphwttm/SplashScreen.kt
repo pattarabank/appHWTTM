@@ -27,14 +27,14 @@ class SplashScreen : AppCompatActivity() {
 //        }, 3000)
 
         //test
-        val sharedPreferences = getSharedPreferences("sharedPrefsName", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("userName", Context.MODE_PRIVATE)
 //        val editor = sharedPreferences.edit()
 //        editor.apply {
 //            putString("sharedPrefsName", "-")
 //        }.apply()
 
-        val isBlank = sharedPreferences.getString("sharedPrefsName", null)
-        Log.d("TEST_SP", isBlank.toString())
+        val isBlank = sharedPreferences.getString("userName", null)
+        //Log.d("TEST_SP", isBlank.toString())
         if (isBlank == null) {
             Handler(Looper.getMainLooper()).postDelayed({
                 // Your Code
