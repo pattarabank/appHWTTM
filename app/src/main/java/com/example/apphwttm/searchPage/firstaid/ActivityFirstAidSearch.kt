@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
 import com.example.apphwttm.SearchActivity
+import com.example.apphwttm.searchPage.herb.HerbSearchModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -31,7 +32,7 @@ class ActivityFirstAidSearch : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first_aid_search)
-
+        startFirestore()
 
         firstaidSearchBackBtn = findViewById(R.id.myPreviousIconFirstaid)
         firstaidSearchBackBtn.setOnClickListener {
@@ -48,7 +49,13 @@ class ActivityFirstAidSearch : AppCompatActivity() {
         findViewById<EditText>(R.id.search_field_firstaid).addTextChangedListener(object :
             TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun afterTextChanged(s: Editable?) {}
+            override fun afterTextChanged(s: Editable?) {
+                val searchText: String =
+                    findViewById<EditText>(R.id.search_field_firstaid).text.toString()
+                if(searchText == ""){
+                    startFirestore()
+                }
+            }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val searchText: String =
                     findViewById<EditText>(R.id.search_field_firstaid).text.toString()
@@ -62,6 +69,20 @@ class ActivityFirstAidSearch : AppCompatActivity() {
     private fun searchInFirestore(searchText: String) {
         firebaseFirestore.collection("first aid")
             .whereArrayContains("keyword", searchText)
+            .get().addOnCompleteListener {
+                if (it.isSuccessful) {
+                    searchListFirstAid = it.result!!.toObjects(FirstAidModel::class.java)
+                    searchListFirstAidAdapter.firstAidModelList = searchListFirstAid
+                    searchListFirstAidAdapter.notifyDataSetChanged()
+                } else {
+                    Log.d(TAG, "Error: ${it.exception!!.message}")
+                }
+            }
+    }
+
+    private fun startFirestore() {
+        firebaseFirestore.collection("first aid")
+            //.whereArrayContains("search_keywords",searchText)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     searchListFirstAid = it.result!!.toObjects(FirstAidModel::class.java)

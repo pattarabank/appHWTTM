@@ -50,7 +50,9 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
         findViewById<EditText>(R.id.search_field_Disease).addTextChangedListener(object :
             TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun afterTextChanged(s: Editable?) {}
+            override fun afterTextChanged(s: Editable?) {
+                
+            }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val searchText: String =
                     findViewById<EditText>(R.id.search_field_Disease).text.toString()

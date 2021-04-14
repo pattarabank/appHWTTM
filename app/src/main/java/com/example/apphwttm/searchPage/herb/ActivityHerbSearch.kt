@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
 import com.example.apphwttm.SearchActivity
+import com.example.apphwttm.healthRecord.AreYouOkModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -31,7 +32,7 @@ class ActivityHerbSearch : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_herb_search)
 
-
+        startFirestore()
         herbSearchBackBtn = findViewById(R.id.myPreviousIconHerb)
         herbSearchBackBtn.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)
@@ -48,11 +49,17 @@ class ActivityHerbSearch : AppCompatActivity() {
         findViewById<EditText>(R.id.search_field_Herb).addTextChangedListener(object :
             TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            override fun afterTextChanged(s: Editable?) {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val searchText: String =
                     findViewById<EditText>(R.id.search_field_Herb).text.toString()
                 searchInFirestore(searchText.toLowerCase())
+            }
+            override fun afterTextChanged(s: Editable?) {
+                val searchText: String =
+                    findViewById<EditText>(R.id.search_field_Herb).text.toString()
+                if (searchText == "") {
+                    startFirestore()
+                }
             }
         })
 
@@ -73,6 +80,19 @@ class ActivityHerbSearch : AppCompatActivity() {
             }
     }
 
+    private fun startFirestore() {
+        firebaseFirestore.collection("herb")
+            //.whereArrayContains("search_keywords",searchText)
+            .get().addOnCompleteListener {
+                if (it.isSuccessful) {
+                    searchListHerb = it.result!!.toObjects(HerbSearchModel::class.java)
+                    searchListHerbAdapter.herbSearchModelList = searchListHerb
+                    searchListHerbAdapter.notifyDataSetChanged()
+                } else {
+                    Log.d(TAG, "Error: ${it.exception!!.message}")
+                }
+            }
+    }
 
     override fun onStart() {
         super.onStart()
