@@ -19,6 +19,7 @@ import com.example.apphwttm.searchPage.disease.SearchListDiseaseAdapter
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -33,9 +34,9 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
     private val searchListAreYouOkAdapter = AreYouOkAdapter(searchList, this)
 
     private lateinit var myChipGroup: ChipGroup
-    private lateinit var backIconAreyouok : TextView
+    private lateinit var backIconAreyouok: TextView
     private var chipArrayList = ArrayList<String>()
-    private lateinit var areYouOkBtn : ExtendedFloatingActionButton
+    private lateinit var areYouOkBtn: ExtendedFloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,7 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
         myChipGroup = findViewById(R.id.areyouokChipgroup)
         backIconAreyouok = findViewById(R.id.myPreviousIconAreyouok)
         backIconAreyouok.setOnClickListener {
-            val intent = Intent(this,HealthCareActivity::class.java)
+            val intent = Intent(this, HealthCareActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
@@ -77,10 +78,15 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
         })
         areYouOkBtn = findViewById(R.id.button_areyouok)
         areYouOkBtn.setOnClickListener {
-            val intent = Intent(this,AreYouOk2Activity::class.java)
-            intent.putExtra("are_you_ok_data",chipArrayList)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity(intent)
+            if (chipArrayList.size < 1 || chipArrayList.size > 4) {
+                Snackbar.make(it, "กรุณาเลือกอาการ 1 - 3 อาการ", Snackbar.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, AreYouOk2Activity::class.java)
+                intent.putExtra("are_you_ok_data", chipArrayList)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                startActivity(intent)
+            }
+
         }
 
     }

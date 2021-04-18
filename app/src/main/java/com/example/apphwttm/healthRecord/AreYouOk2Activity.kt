@@ -1,21 +1,38 @@
 package com.example.apphwttm.healthRecord
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
 import com.example.apphwttm.R
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import java.time.LocalDate
 
 class AreYouOk2Activity : AppCompatActivity() {
 
     private lateinit var areYouOk2Date: TextView
+    private lateinit var areYouOk2Btn1: ExtendedFloatingActionButton
+    private lateinit var areYouOk2Btn2: ExtendedFloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_are_you_ok2)
         setAreYouOk2Date()
+        //btn
+        areYouOk2Btn1 = findViewById(R.id.areyouok2_btn_1)
+        areYouOk2Btn1.setOnClickListener {
+            val intent = Intent(this,RelateDiseaseActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
+        areYouOk2Btn2 = findViewById(R.id.areyouok2_btn_2)
+        areYouOk2Btn2.setOnClickListener {
+            val intent = Intent(this,AddRecordDetailActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
 
         val arrayAdapter: ArrayAdapter<*>
         val dataList: ArrayList<String> =

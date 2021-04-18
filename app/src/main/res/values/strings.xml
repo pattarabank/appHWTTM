@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">appHWTTM</string>
+    <string name="app_name">ดูแลสุขภาพด้วยแพทย์แผนไทย</string>
     <string name="ss_picture">ss_picture</string>
     <string name="thai_traditional_medicine_healthCare">Thai Traditional Medicine Healthcare</string>
     <string name="th_name_ss">ดูแลสุขภาพด้วยแพทย์แผนไทย</string>
@@ -48,6 +48,11 @@
     <string name="are_you_ok_today_txt">วันนี้</string>
     <string name="are_you_ok_btn_txt1">ดูโรคที่เกี่ยวข้องกับอาการ</string>
     <string name="are_you_ok_btn_txt2">บันทึกรายละเอียดเพิ่มเติม</string>
+    <string name="RelateDiseaseTxt">โรคที่เกี่ยวข้องกับอาการ</string>
+    <string name="RelateDiseaseTxt2">โรคที่มีโอกาสเกี่ยวข้องกับอาการ</string>
+    <string name="RelateDiseaseTxt3">แตะที่ชื่ออาการเพื่อดูรายละเอียด</string>
+    <string name="AddRecordDetailTxt">บันทึกรายละเอียดเพิ่มเติม</string>
+    <string name="hintAddRecordDetail">บันทึกที่นี่</string>
 
 
 </resources>

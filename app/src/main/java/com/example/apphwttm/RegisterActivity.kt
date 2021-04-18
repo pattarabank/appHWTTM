@@ -14,6 +14,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.whiteelephant.monthpicker.MonthPickerDialog
+import java.io.IOException
+import java.lang.Exception
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -26,8 +28,8 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var regisYearBtn: ExtendedFloatingActionButton
     private lateinit var myCalendar: TextView
-    private lateinit var user_year_txt : TextView
-    private lateinit var txt_user_name : TextInputEditText
+    private lateinit var user_year_txt: TextView
+    private lateinit var user_name_txt: TextInputEditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -37,28 +39,62 @@ class RegisterActivity : AppCompatActivity() {
         }
         regisYearBtn = findViewById(R.id.extended_fab)
         user_year_txt = findViewById(R.id.user_year_txt)
-        txt_user_name = findViewById(R.id.user_name_input_txt)
+        user_year_txt.text = null
+        user_name_txt = findViewById(R.id.user_name_input_txt)
+        user_name_txt.text = null
         regisYearBtn.setOnClickListener {
-            //save data
-            var name = txt_user_name.text.toString()
-            //Log.d("TESTREGIS",name)
-            val sharedPreferencesName = getSharedPreferences("userName", Context.MODE_PRIVATE)
-            val editorName = sharedPreferencesName.edit()
-            editorName.apply{
-                putString("userName",name)
-            }.apply()
+            try {
+                if (user_name_txt.text != null && user_year_txt != null) {
+                    //save data
+                    var name = user_name_txt.text.toString()
+                    val sharedPreferencesName =
+                        getSharedPreferences("userName", Context.MODE_PRIVATE)
+                    val editorName = sharedPreferencesName.edit()
+                    editorName.apply {
+                        putString("userName", name)
+                    }.apply()
 
-            var year = user_year_txt.text.toString()
-            val sharedPreferencesYear = getSharedPreferences("userYear",Context.MODE_PRIVATE)
-            val editorYear = sharedPreferencesYear.edit()
-            editorYear.apply{
-                putString("userYear",year)
-            }.apply()
+                    var year = user_year_txt.text.toString()
+                    val sharedPreferencesYear =
+                        getSharedPreferences("userYear", Context.MODE_PRIVATE)
+                    val editorYear = sharedPreferencesYear.edit()
+                    editorYear.apply {
+                        putString("userYear", year)
+                    }.apply()
 
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity(intent)
-            finish()
+                    //isKid อายุน้อยกว่า 12
+                    var thisYear: Calendar = Calendar.getInstance()
+                    var numYear = thisYear.get(Calendar.YEAR)
+                    numYear += 543
+                    val sharedPreferencesIsKid = getSharedPreferences("isKid", Context.MODE_PRIVATE)
+                    if ((numYear - year.toInt()) <= 12) {
+                        val editorIsKid = sharedPreferencesIsKid.edit()
+                        editorIsKid.apply {
+                            putBoolean("isKid", true)
+                        }.apply()
+                        Log.d("testUserAge", "kid")
+                    } else {
+                        val editorIsKid = sharedPreferencesIsKid.edit()
+                        editorIsKid.apply {
+                            putBoolean("isKid", false)
+                        }.apply()
+                        Log.d("testUserAge", "adult")
+                    }
+                    Log.d("testUserAge", ((numYear - year.toInt()).toString()))
+
+                    val intent = Intent(this, HomeActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    startActivity(intent)
+                    finish()
+
+                } else {
+                    Snackbar.make(it, "กรอกไม่ครบ", Snackbar.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                Snackbar.make(it, "กรอกไม่ครบ", Snackbar.LENGTH_SHORT).show()
+            }
+
+
         }
 
 //        val outlinedButton: Button = findViewById(R.id.outlinedButton)
@@ -108,8 +144,8 @@ class RegisterActivity : AppCompatActivity() {
         )
         builder.setActivatedMonth(Calendar.JANUARY)
             .setMinYear(2484)
-            .setActivatedYear(today.get(Calendar.YEAR)+543)
-            .setMaxYear(today.get(Calendar.YEAR)+543)
+            .setActivatedYear(today.get(Calendar.YEAR) + 543)
+            .setMaxYear(today.get(Calendar.YEAR) + 543)
             .setTitle("เลือกปีเกิดของคุณ")
             .showYearOnly()
             .build().show()

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CAE7B9"
+    tools:context=".healthRecord.AddRecordDetailActivity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#8BC34A"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewAddRecordDetail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="16sp"
+            android:layout_weight="1"
+            android:fontFamily="@font/kodchasan"
+            android:gravity="center"
+            android:text="@string/AddRecordDetailTxt"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/myPreviousIconAddRecordDetail"
+        android:layout_width="16sp"
+        android:layout_height="22sp"
+        android:layout_margin="17sp"
+        android:background="@drawable/left_arrow"
+        android:textColor="#616161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewAddRecordDetail2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="14sp"
+        android:fontFamily="@font/kodchasan"
+        android:gravity="center"
+        android:padding="16sp"
+        android:text="@string/AddRecordDetailTxt"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine2"
+        android:layout_width="0dp"
+        android:layout_height="360sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints="บันทึกที่นี่"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/hintAddRecordDetail"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/AddRecordDetail_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddRecordDetail2" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/AddRecordDetail_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/btn_save"
+        android:textAlignment="center"
+        android:textColor="#3E3E3E"
+        android:textSize="14sp"
+        app:backgroundTint="#8BC34A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
