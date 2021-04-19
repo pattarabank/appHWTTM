@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/kodchasan"
             android:gravity="center"
-            android:text="อาการที่เกี่ยวข้องกับศีรษะ"
+            android:text="@string/txtTopViewHead"
             android:textStyle="bold" />
     </LinearLayout>
 

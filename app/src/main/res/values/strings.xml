@@ -53,6 +53,7 @@
     <string name="RelateDiseaseTxt3">แตะที่ชื่ออาการเพื่อดูรายละเอียด</string>
     <string name="AddRecordDetailTxt">บันทึกรายละเอียดเพิ่มเติม</string>
     <string name="hintAddRecordDetail">บันทึกที่นี่</string>
+    <string name="txtTopViewHead">ศรีษะ หู ตา คอ จมูก ปาก</string>
 
 
 </resources>

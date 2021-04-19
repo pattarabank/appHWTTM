@@ -1,5 +1,6 @@
 package com.example.apphwttm.searchPage.disease
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.example.apphwttm.R
 
 class SearchListDiseaseAdapter(var diseaseSearchModelList: List<DiseaseSearchModel>) :
     RecyclerView.Adapter<SearchListDiseaseAdapter.SearchListDiseaseViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchListDiseaseViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -28,10 +30,17 @@ class SearchListDiseaseAdapter(var diseaseSearchModelList: List<DiseaseSearchMod
     class SearchListDiseaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var itemDescription = ""
         private var itemName = ""
+        val isKid = itemView.getContext().getSharedPreferences("isKid",Context.MODE_PRIVATE)
+        val getIsKid = isKid.getBoolean("isKid",true)
         fun bind(diseaseSearchModel: DiseaseSearchModel) {
             itemView.findViewById<TextView>(R.id.disease_tv_1).text = diseaseSearchModel.name
             itemName = diseaseSearchModel.name
-            itemDescription = diseaseSearchModel.des
+            itemDescription = if (getIsKid){
+                diseaseSearchModel.des_kid
+            }else{
+                diseaseSearchModel.des
+            }
+
         }
         init {
             itemView.setOnClickListener { v:View ->

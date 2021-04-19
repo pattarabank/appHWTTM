@@ -20,20 +20,7 @@ class AreYouOk2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_are_you_ok2)
         setAreYouOk2Date()
-        //btn
-        areYouOk2Btn1 = findViewById(R.id.areyouok2_btn_1)
-        areYouOk2Btn1.setOnClickListener {
-            val intent = Intent(this,RelateDiseaseActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity(intent)
-        }
-        areYouOk2Btn2 = findViewById(R.id.areyouok2_btn_2)
-        areYouOk2Btn2.setOnClickListener {
-            val intent = Intent(this,AddRecordDetailActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity(intent)
-        }
-
+        //รับโรคจาก chip มาแสดง
         val arrayAdapter: ArrayAdapter<*>
         val dataList: ArrayList<String> =
             intent.getSerializableExtra("are_you_ok_data") as ArrayList<String>
@@ -41,6 +28,25 @@ class AreYouOk2Activity : AppCompatActivity() {
 //        arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,dataList)
         arrayAdapter = ArrayAdapter(this, R.layout.custom_listview, dataList)
         myListView.adapter = arrayAdapter
+
+        //btn
+        //โรคที่เกี่ยวข้อง btn
+        areYouOk2Btn1 = findViewById(R.id.areyouok2_btn_1)
+        areYouOk2Btn1.setOnClickListener {
+            //val sendDataToRelate: ArrayList<String> =
+            //    intent.getSerializableExtra("are_you_ok_data") as ArrayList<String>
+            val intent = Intent(this, RelateDiseaseActivity::class.java)
+            intent.putExtra("SEND_DATA_TO_RELATE",dataList)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
+        //บันทึกรายละเอียดเพิ่มเติม btn
+        areYouOk2Btn2 = findViewById(R.id.areyouok2_btn_2)
+        areYouOk2Btn2.setOnClickListener {
+            val intent = Intent(this, AddRecordDetailActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
 
     }
 

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
 import com.example.apphwttm.SearchActivity
+import com.example.apphwttm.searchPage.herb.HerbSearchModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -33,7 +34,7 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_disease_search)
 
-
+        startFirestore()
         diseaseSearchBackBtn = findViewById(R.id.myPreviousIconDisease)
         diseaseSearchBackBtn.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)
@@ -51,8 +52,13 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
             TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable?) {
-                
+                val searchText: String =
+                    findViewById<EditText>(R.id.search_field_Disease).text.toString()
+                if (searchText == "") {
+                    startFirestore()
+                }
             }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val searchText: String =
                     findViewById<EditText>(R.id.search_field_Disease).text.toString()
@@ -65,6 +71,20 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
     private fun searchInFirestore(searchText: String) {
         firebaseFirestore.collection(" symptom")
             .whereArrayContains("keyword", searchText)
+            .get().addOnCompleteListener {
+                if (it.isSuccessful) {
+                    searchListDisease = it.result!!.toObjects(DiseaseSearchModel::class.java)
+                    searchListDiseaseAdapter.diseaseSearchModelList = searchListDisease
+                    searchListDiseaseAdapter.notifyDataSetChanged()
+                } else {
+                    Log.d(TAG, "Error: ${it.exception!!.message}")
+                }
+            }
+    }
+
+    private fun startFirestore() {
+        firebaseFirestore.collection(" symptom")
+            //.whereArrayContains("search_keywords",searchText)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     searchListDisease = it.result!!.toObjects(DiseaseSearchModel::class.java)
