@@ -54,6 +54,7 @@
     <string name="AddRecordDetailTxt">บันทึกรายละเอียดเพิ่มเติม</string>
     <string name="hintAddRecordDetail">บันทึกที่นี่</string>
     <string name="txtTopViewHead">ศรีษะ หู ตา คอ จมูก ปาก</string>
+    <string name="calendarTxt">ประวัติสุขภาพ</string>
 
 
 </resources>

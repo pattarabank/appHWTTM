@@ -5,14 +5,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.apphwttm.calendar.CalendarActivity
 import com.example.apphwttm.healthRecord.HealthCareActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
 class ProfileActivity : AppCompatActivity() {
 
 
     private lateinit var bottomBar: BottomNavigationView
-
+    private lateinit var calendarBtn: ExtendedFloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,20 +23,19 @@ class ProfileActivity : AppCompatActivity() {
         //ใส่ข้อมูลผู้ใช้
         val sharedPreferencesName = getSharedPreferences("userName", Context.MODE_PRIVATE)
         val getUserName = sharedPreferencesName.getString("userName", null)
-        val userNameTextView : TextView = findViewById(R.id.profileUserName)
+        val userNameTextView: TextView = findViewById(R.id.profileUserName)
         userNameTextView.text = getUserName
 
 
-        val sharedPreferencesBirthDate = getSharedPreferences("userYear",Context.MODE_PRIVATE)
-        val getUserBirthDate = sharedPreferencesBirthDate.getString("userYear",null)
-        val userBirthDateTextView : TextView = findViewById(R.id.profileBirthDate)
+        val sharedPreferencesBirthDate = getSharedPreferences("userYear", Context.MODE_PRIVATE)
+        val getUserBirthDate = sharedPreferencesBirthDate.getString("userYear", null)
+        val userBirthDateTextView: TextView = findViewById(R.id.profileBirthDate)
         userBirthDateTextView.text = getUserBirthDate
 
 //        val sharedPreferencesDisease = getSharedPreferences("sharedPrefsDisease",Context.MODE_PRIVATE)
 //        val getUserDisease = sharedPreferencesDisease.getString("sharedPrefsDisease",null)
 //        val userDiseaseTextView : TextView = findViewById(R.id.profileDisease)
 //        userDiseaseTextView.text = getUserDisease
-
 
 
         bottomBar = findViewById(R.id.bottom_navigation)
@@ -65,8 +66,12 @@ class ProfileActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
-
+        calendarBtn = findViewById(R.id.profile_btn_1)
+        calendarBtn.setOnClickListener {
+            val intent = Intent(this, CalendarActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
 
     }
 }

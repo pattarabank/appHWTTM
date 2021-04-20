@@ -67,7 +67,7 @@ class RegisterActivity : AppCompatActivity() {
                     var numYear = thisYear.get(Calendar.YEAR)
                     numYear += 543
                     val sharedPreferencesIsKid = getSharedPreferences("isKid", Context.MODE_PRIVATE)
-                    if ((numYear - year.toInt()) <= 12) {
+                    if ((numYear - year.toInt()) <= 8) {
                         val editorIsKid = sharedPreferencesIsKid.edit()
                         editorIsKid.apply {
                             putBoolean("isKid", true)

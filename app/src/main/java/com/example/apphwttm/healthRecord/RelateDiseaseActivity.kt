@@ -41,8 +41,8 @@ class RelateDiseaseActivity : AppCompatActivity() {
     }
 
     private fun searchInFirestore(myList: List<String>) {
-        firebaseFirestore.collection("testCollection")
-            .whereArrayContainsAny("tag", myList)
+        firebaseFirestore.collection(" symptom")
+            .whereArrayContainsAny("with", myList)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     searchListDiseaseRelate = it.result!!.toObjects(DiseaseSearchModel::class.java)
