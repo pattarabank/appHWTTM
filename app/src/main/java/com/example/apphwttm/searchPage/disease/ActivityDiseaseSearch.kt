@@ -24,7 +24,7 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
     private val firebaseFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private var searchListDisease: List<DiseaseSearchModel> = ArrayList()
-    private val searchListDiseaseAdapter = SearchListDiseaseAdapter(searchListDisease)
+    private val searchListDiseaseAdapter = NewSearchListDiseaseAdapter(searchListDisease)
 
 
     private lateinit var diseaseSearchBackBtn: TextView

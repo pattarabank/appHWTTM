@@ -14,6 +14,10 @@
 
         <item name="dialogActionButtonColor">#8BC34A</item>
     </style>
+    <style name="CustomTabStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/kodchasan</item>
+    </style>
 </resources>
 <!--    #CAE7B9-->
 <!--    #8BC34A-->

@@ -10,6 +10,7 @@ import com.example.apphwttm.searchPage.disease.DiseaseSearchModel
 import com.example.apphwttm.searchPage.disease.SearchListDiseaseAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 private const val TAG: String = "FIRESTORE_SEARCH_LOG"
 
@@ -37,12 +38,12 @@ class RelateDiseaseActivity : AppCompatActivity() {
         searchListDiseaseRelate.adapter = searchListDiseaseRelateAdapter
         searchInFirestore(relateList)
 
-
     }
 
     private fun searchInFirestore(myList: List<String>) {
         firebaseFirestore.collection(" symptom")
             .whereArrayContainsAny("with", myList)
+//            .orderBy("name", Query.Direction.ASCENDING)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     searchListDiseaseRelate = it.result!!.toObjects(DiseaseSearchModel::class.java)

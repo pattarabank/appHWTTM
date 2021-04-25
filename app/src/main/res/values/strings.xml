@@ -55,6 +55,8 @@
     <string name="hintAddRecordDetail">บันทึกที่นี่</string>
     <string name="txtTopViewHead">ศรีษะ หู ตา คอ จมูก ปาก</string>
     <string name="calendarTxt">ประวัติสุขภาพ</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

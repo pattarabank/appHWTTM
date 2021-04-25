@@ -15,6 +15,7 @@ import com.example.apphwttm.SearchActivity
 import com.example.apphwttm.searchPage.herb.HerbSearchModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 private const val TAG: String = "FIRESTORE_SEARCH_LOG"
 
