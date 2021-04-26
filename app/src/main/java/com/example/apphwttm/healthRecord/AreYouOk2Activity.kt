@@ -1,5 +1,6 @@
 package com.example.apphwttm.healthRecord
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.widget.ListView
 import android.widget.TextView
 import com.example.apphwttm.R
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import java.time.LocalDate
 
 class AreYouOk2Activity : AppCompatActivity() {
@@ -15,6 +17,7 @@ class AreYouOk2Activity : AppCompatActivity() {
     private lateinit var areYouOk2Date: TextView
     private lateinit var areYouOk2Btn1: ExtendedFloatingActionButton
     private lateinit var areYouOk2Btn2: ExtendedFloatingActionButton
+    private lateinit var checkBtn : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,23 @@ class AreYouOk2Activity : AppCompatActivity() {
             val intent = Intent(this, AddRecordDetailActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
+        }
+
+        checkBtn = findViewById(R.id.check_icon)
+        checkBtn.setOnClickListener {
+            val userHealthCareLimitPerDay = getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
+            val isOk = userHealthCareLimitPerDay.getString("userLimitPerDay", null)
+            if (isOk == null){
+                val userHealthCareLimitPerDay = getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
+                val editLimit = userHealthCareLimitPerDay.edit()
+                editLimit.apply{
+                    putString("userLimitPerDay","full")
+                }.apply()
+                Snackbar.make(it,"บันทึกข้อมูลสุขภาพวันนี้สำเร็จ",Snackbar.LENGTH_SHORT).show()
+            }else{
+                Snackbar.make(it,"วันนี้บันทึกไปแล้ว",Snackbar.LENGTH_SHORT).show()
+            }
+
         }
 
     }

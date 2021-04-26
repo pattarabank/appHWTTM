@@ -44,10 +44,12 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8sp"
         android:fillViewport="true"
         android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_disease_name">
@@ -56,8 +58,7 @@
             android:id="@+id/detail_disease_des"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
+            android:layout_margin="20sp"
             android:fontFamily="@font/kodchasan"
             android:padding="12sp"
             android:scrollbars="vertical"

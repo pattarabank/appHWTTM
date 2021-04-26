@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
 import com.example.apphwttm.SearchActivity
 import com.example.apphwttm.searchPage.disease.DiseaseSearchModel
+import com.example.apphwttm.searchPage.disease.NewSearchListDiseaseAdapter
 import com.example.apphwttm.searchPage.disease.SearchListDiseaseAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -22,7 +23,7 @@ class DiseaseBodyActivity : AppCompatActivity() {
     private val firebaseFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private var searchListDiseaseBody: List<DiseaseSearchModel> = ArrayList()
-    private var searchListDiseaseBodyAdapter = SearchListDiseaseAdapter(searchListDiseaseBody)
+    private var searchListDiseaseBodyAdapter = NewSearchListDiseaseAdapter(searchListDiseaseBody)
 
     private lateinit var diseaseBodyBackBtn: TextView
 

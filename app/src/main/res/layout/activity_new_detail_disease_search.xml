@@ -43,12 +43,12 @@
         android:id="@+id/tabLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="fixed"
-        app:tabTextAppearance="@style/CustomTabStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:tabTextColor="@color/black">
+        app:tabMode="fixed"
+        app:tabTextAppearance="@style/CustomTabStyle"
+        app:tabTextColor="#616161">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -64,10 +64,12 @@
 
     <ScrollView
 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:fillViewport="true"
         android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabLayout2">
@@ -76,14 +78,11 @@
             android:id="@+id/test_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24sp"
-            android:layout_marginTop="36sp"
-            android:layout_marginEnd="24sp"
+            android:layout_margin="20sp"
             android:fontFamily="@font/kodchasan"
             android:padding="12sp"
             android:scrollbars="vertical"
-            android:text="tempDes"
-            android:textColor="@color/black"
+            android:textColor="#616161"
             android:textSize="14sp" />
     </ScrollView>
 

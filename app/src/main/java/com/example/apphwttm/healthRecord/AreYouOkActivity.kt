@@ -1,5 +1,6 @@
 package com.example.apphwttm.healthRecord
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,7 @@ import androidx.core.view.isEmpty
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
+import com.example.apphwttm.myDateInTH
 import com.example.apphwttm.searchPage.disease.DiseaseSearchModel
 import com.example.apphwttm.searchPage.disease.SearchListDiseaseAdapter
 import com.google.android.material.chip.Chip
@@ -38,10 +40,16 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
     private var chipArrayList = ArrayList<String>()
     private lateinit var areYouOkBtn: ExtendedFloatingActionButton
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_are_you_ok)
+
+
+
         startFirestore()
+//        var temp : String = myDateInTH().myDateInTHfun()
+//        Log.d("TESTDATE",temp)
         myChipGroup = findViewById(R.id.areyouokChipgroup)
         backIconAreyouok = findViewById(R.id.myPreviousIconAreyouok)
         backIconAreyouok.setOnClickListener {
@@ -78,7 +86,7 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
         })
         areYouOkBtn = findViewById(R.id.button_areyouok)
         areYouOkBtn.setOnClickListener {
-            if (chipArrayList.size < 1 || chipArrayList.size > 4) {
+            if (chipArrayList.size < 1 || chipArrayList.size > 3) {
                 Snackbar.make(it, "กรุณาเลือกอาการ 1 - 3 อาการ", Snackbar.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this, AreYouOk2Activity::class.java)
@@ -86,9 +94,36 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
             }
+            //save data
+            val userHealthCareLimitPerDay =
+                getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
+            val isOk = userHealthCareLimitPerDay.getString("userLimitPerDay", null)
+            if (isOk == null) {
+                saveUserTodayData()
+            } else {
+                Snackbar.make(it, "วันนี้บันทึกไปแล้ว", Snackbar.LENGTH_SHORT).show()
+            }
 
         }
 
+    }
+
+    private fun saveUserTodayData() {
+        //key
+        val dateKey: String = myDateInTH().myDateInTHfun()
+        //value แยกแต่ละโรคด้วย space
+        var userValue: String = ""
+        chipArrayList.forEach { str ->
+            userValue += "$str-"
+        }
+        //shP
+        val dataToday = getSharedPreferences("USERDATA", Context.MODE_PRIVATE)
+        val editDataToday = dataToday.edit()
+        editDataToday.apply {
+            putString(dateKey, userValue)
+        }.apply()
+        var testMydata: String? = dataToday.getString(dateKey, null)
+        Log.d("TESTUSERVALUE", testMydata.toString())
     }
 
 

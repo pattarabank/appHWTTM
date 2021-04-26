@@ -41,6 +41,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/check_icon"
+        android:layout_width="36sp"
+        android:layout_height="36sp"
+        android:layout_margin="10sp"
+        android:background="@drawable/ic_baseline_check_24"
+        android:textColor="#616161"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <TextView
         android:id="@+id/textViewAre_you_ok_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
