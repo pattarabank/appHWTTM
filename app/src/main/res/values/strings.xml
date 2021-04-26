@@ -57,6 +57,8 @@
     <string name="calendarTxt">ประวัติสุขภาพ</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="adult">ผู้ใหญ่</string>
+    <string name="kid">เด็ก</string>
 
 
 </resources>
