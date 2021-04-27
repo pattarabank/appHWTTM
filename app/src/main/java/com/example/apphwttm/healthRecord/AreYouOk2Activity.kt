@@ -7,10 +7,13 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.apphwttm.R
+import com.example.apphwttm.myDateInTH
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import java.time.LocalDate
+import java.util.function.Consumer
 
 class AreYouOk2Activity : AppCompatActivity() {
 
@@ -31,6 +34,17 @@ class AreYouOk2Activity : AppCompatActivity() {
 //        arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,dataList)
         arrayAdapter = ArrayAdapter(this, R.layout.custom_listview, dataList)
         myListView.adapter = arrayAdapter
+
+        //send data to bad calendar
+//        var temp: String = ""
+//        dataList.forEach{
+//            temp+="$it "
+//        }
+//        val shPAreYouOkData = getSharedPreferences("are_you_ok_data_to_badCal",Context.MODE_PRIVATE)
+//        var editshPAreYouOkData = shPAreYouOkData.edit()
+//        editshPAreYouOkData.apply{
+//            putString("are_you_ok_data_to_badCal_key",temp)
+//        }.apply()
 
         //btn
         //โรคที่เกี่ยวข้อง btn
@@ -53,15 +67,21 @@ class AreYouOk2Activity : AppCompatActivity() {
 
         checkBtn = findViewById(R.id.check_icon)
         checkBtn.setOnClickListener {
+            val toDayKey: String = myDateInTH().myDateTodayInTHfun()
             val userHealthCareLimitPerDay = getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
-            val isOk = userHealthCareLimitPerDay.getString("userLimitPerDay", null)
+            val isOk = userHealthCareLimitPerDay.getString(toDayKey, null)
             if (isOk == null){
                 val userHealthCareLimitPerDay = getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
                 val editLimit = userHealthCareLimitPerDay.edit()
                 editLimit.apply{
-                    putString("userLimitPerDay","full")
+                    putString(toDayKey,"full")
                 }.apply()
-                Snackbar.make(it,"บันทึกข้อมูลสุขภาพวันนี้สำเร็จ",Snackbar.LENGTH_SHORT).show()
+                //Snackbar.make(it,"บันทึกข้อมูลสุขภาพวันนี้สำเร็จ",Snackbar.LENGTH_SHORT).show()
+                Toast.makeText(this,"บันทึกข้อมูลสุขภาพวันนี้สำเร็จ",Toast.LENGTH_LONG).show()
+                val intent = Intent(this,HealthCareActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                startActivity(intent)
+                finish()
             }else{
                 Snackbar.make(it,"วันนี้บันทึกไปแล้ว",Snackbar.LENGTH_SHORT).show()
             }

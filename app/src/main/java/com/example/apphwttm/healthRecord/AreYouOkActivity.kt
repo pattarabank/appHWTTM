@@ -15,6 +15,7 @@ import androidx.core.view.isEmpty
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
+import com.example.apphwttm.calendar.CalendarDetailBadActivity
 import com.example.apphwttm.myDateInTH
 import com.example.apphwttm.searchPage.disease.DiseaseSearchModel
 import com.example.apphwttm.searchPage.disease.SearchListDiseaseAdapter
@@ -95,9 +96,10 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
                 startActivity(intent)
             }
             //save data
+            val toDayKey: String = myDateInTH().myDateTodayInTHfun()
             val userHealthCareLimitPerDay =
                 getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
-            val isOk = userHealthCareLimitPerDay.getString("userLimitPerDay", null)
+            val isOk = userHealthCareLimitPerDay.getString(toDayKey, null)
             if (isOk == null) {
                 saveUserTodayData()
             } else {
@@ -110,7 +112,7 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
 
     private fun saveUserTodayData() {
         //key
-        val dateKey: String = myDateInTH().myDateInTHfun()
+        val dateKey: String = myDateInTH().myDateTodayInTHfun()
         //value แยกแต่ละโรคด้วย space
         var userValue: String = ""
         chipArrayList.forEach { str ->

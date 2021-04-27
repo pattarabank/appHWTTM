@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CAE7B9"
-    tools:context=".calendar.CalendarActivity">
+    tools:context=".calendar.CalendarDetailGoodActivity">
+
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -40,83 +41,73 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewCalendar1"
+        android:id="@+id/txtViewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16sp"
+        android:layout_marginTop="24sp"
         android:fontFamily="@font/kodchasan"
-        android:textColor="#616161"
+        android:gravity=""
+        android:text="TextViewName"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
+    <TextView
+        android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/calendar_rounded"
+        android:layout_marginTop="24sp"
+        android:fontFamily="@font/kodchasan"
+        android:text="TextViewDate"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCalendar1" />
-
+        app:layout_constraintTop_toBottomOf="@+id/txtViewName" />
 
     <TextView
-        android:id="@+id/textViewCalendar2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ดูรายละเอียดข้อมูลวันนี้"
-        android:gravity="center"
-        android:fontFamily="@font/kodchasan"
-        android:textSize="14sp"
-        android:textColor="#616161"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
-
-    <Button
-        android:id="@+id/calendar_btn"
+        android:id="@+id/textViewGood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="ดูข้อมูล"
-        android:textColor="#616161"
+        android:layout_marginTop="24sp"
+        android:fontFamily="@font/kodchasan"
+        android:text="TextViewGood"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
+
+    <TextView
+        android:id="@+id/textViewIcon1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/kodchasan"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGood" />
+
+    <TextView
+        android:id="@+id/textViewIcon2"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:background="@drawable/embarrassed"
+        android:fontFamily="@font/kodchasan"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewCalendar3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32sp"
-        android:textColor="#616161"
-        android:fontFamily="@font/kodchasan"
-        android:textSize="14sp"
-        android:text="วันที่คุณเลือก : "
-        app:layout_constraintBottom_toTopOf="@+id/calendar_btn"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCalendar2" />
-
-    <TextView
-        android:id="@+id/textViewCalendar4"
-        android:layout_width="180sp"
-        android:layout_height="75sp"
-        android:layout_marginEnd="32sp"
-        android:padding="8sp"
-        android:background="@drawable/calendar_rounded"
-        android:fontFamily="@font/kodchasan"
-        android:gravity="center"
-        android:text="มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/calendar_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewCalendar3"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCalendar2" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewIcon1"
+        app:layout_constraintVertical_bias="0.169" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

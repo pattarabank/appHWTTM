@@ -46,7 +46,7 @@ class AddRecordDetailActivity : AppCompatActivity() {
     }
 
     private fun saveUserTodayDetailData(str: String) {
-        val dateKey: String = myDateInTH().myDateInTHfun()
+        val dateKey: String = myDateInTH().myDateTodayInTHfun()
         val dataToday = getSharedPreferences("USERDATA", Context.MODE_PRIVATE)
         val currentData: String? = dataToday.getString(dateKey, null)
         var saveData = "+$str"
@@ -58,4 +58,7 @@ class AddRecordDetailActivity : AppCompatActivity() {
         var testMydata: String? = dataTodayWithDetail.getString(dateKey, null)
         Log.d("TESTUSERVALUE", testMydata.toString())
     }
+
+
+
 }

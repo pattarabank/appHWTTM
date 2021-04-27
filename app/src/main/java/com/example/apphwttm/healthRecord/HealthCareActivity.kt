@@ -53,21 +53,21 @@ class HealthCareActivity : AppCompatActivity() {
             }
         }
 
-
+        val toDayKey: String = myDateInTH().myDateTodayInTHfun()
         val userHealthCareLimitPerDay = getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
-        val isOk = userHealthCareLimitPerDay.getString("userLimitPerDay", null)
+        val isOk = userHealthCareLimitPerDay.getString(toDayKey, null)
 
         iconWell = findViewById<TextView>(R.id.healthcare_tx_3)
         iconWell.setOnClickListener {
             //Snackbar.make(it, "am fine", Snackbar.LENGTH_SHORT).show()
 
-            val dateKey: String = myDateInTH().myDateInTHfun()
+            val dateKey: String = myDateInTH().myDateTodayInTHfun()
             if (isOk == null){//วันนนี้ยังไม่ได้บันทึก
                 //บันทึกว่าวันนี้ บันทึกไปแล้ว และ บันทึกข้อมูลว่าสบายดี
                 val userHealthCareLimitPerDay = getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
                 val editLimit = userHealthCareLimitPerDay.edit()
                 editLimit.apply{
-                    putString("userLimitPerDay","full")
+                    putString(toDayKey,"full")
                 }.apply()
 
                 val dataTodayWithDetail = getSharedPreferences("USERDATAWITHDETAIL", Context.MODE_PRIVATE)

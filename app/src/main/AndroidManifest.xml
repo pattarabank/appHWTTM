@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppHWTTM">
-        <activity android:name=".searchPage.disease.NewDetailDiseaseSearchActivity"></activity>
+        <activity android:name=".calendar.CalendarDetailBadActivity"></activity>
+        <activity android:name=".calendar.CalendarDetailGoodActivity" />
+        <activity android:name=".searchPage.disease.NewDetailDiseaseSearchActivity" />
         <activity android:name=".calendar.CalendarActivity" />
         <activity android:name=".healthRecord.AddRecordDetailActivity" />
         <activity android:name=".healthRecord.RelateDiseaseActivity" />
