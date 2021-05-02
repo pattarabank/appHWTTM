@@ -20,7 +20,7 @@ class CalendarDetailGoodActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar_detail_good)
-
+        var setDate: String? = intent.getStringExtra("date_to_good")
         //name
         val shPName = getSharedPreferences("userName", Context.MODE_PRIVATE)
         var shPNameData = shPName.getString("userName",null)
@@ -31,7 +31,7 @@ class CalendarDetailGoodActivity : AppCompatActivity() {
         txtViewDate = findViewById(R.id.textViewDate)
         var dayArr = myDateInTH().calendarDateInTH().split(" ")
         var dayNumArr = myDateInTH().myDateTodayInTHfun().split(" ")
-        var setDate = "${dayArr[0]} ที่ ${dayNumArr[0]} ${dayArr[1]} ${dayArr[2]}"
+        //var setDate = "${dayArr[0]} ที่ ${dayNumArr[0]} ${dayArr[1]} ${dayArr[2]}"
         txtViewDate.text = setDate
 
         //good

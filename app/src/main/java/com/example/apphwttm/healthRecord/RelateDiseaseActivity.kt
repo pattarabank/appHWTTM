@@ -1,8 +1,10 @@
 package com.example.apphwttm.healthRecord
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
@@ -22,6 +24,8 @@ class RelateDiseaseActivity : AppCompatActivity() {
     private var searchListDiseaseRelate: List<DiseaseSearchModel> = ArrayList()
     private var searchListDiseaseRelateAdapter = SearchListDiseaseAdapter(searchListDiseaseRelate)
 
+    private lateinit var txtViewBottom : TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_relate_disease)
@@ -38,6 +42,15 @@ class RelateDiseaseActivity : AppCompatActivity() {
         searchListDiseaseRelate.adapter = searchListDiseaseRelateAdapter
         searchInFirestore(relateList)
 
+        //set text
+        txtViewBottom = findViewById(R.id.textViewRelate2)
+        val shPIsKid = getSharedPreferences("isKid",Context.MODE_PRIVATE)
+        val shPIsKidData = shPIsKid.getBoolean("isKid",true)
+        if (shPIsKidData){
+            txtViewBottom.text = "แตะที่ชื่ออาการเพื่อดูรายละเอียดสำหรับเด็ก"
+        }else{
+            txtViewBottom.text = "แตะที่ชื่ออาการเพื่อดูรายละเอียด"
+        }
     }
 
     private fun searchInFirestore(myList: List<String>) {

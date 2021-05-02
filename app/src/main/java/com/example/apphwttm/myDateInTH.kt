@@ -2,6 +2,7 @@ package com.example.apphwttm
 
 import java.time.LocalDate
 import java.time.ZoneId
+import java.util.*
 
 class myDateInTH {
     fun myDateTodayInTHfun(): String {
@@ -36,7 +37,7 @@ class myDateInTH {
     }
 
     fun calendarDateInTH(): String {
-        var date = LocalDate.now(ZoneId.of("Asia/Bangkok"))
+        var date = LocalDate.now()
         val date2 = LocalDate.now().toString().split("-")
         var day: String = date.dayOfWeek.toString()
         var dayTxt = ""

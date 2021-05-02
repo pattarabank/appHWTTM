@@ -11,6 +11,7 @@ import android.widget.TextView
 import com.example.apphwttm.R
 import com.example.apphwttm.myDateInTH
 import java.time.LocalDate
+import java.util.*
 
 class CalendarActivity : AppCompatActivity() {
 
@@ -28,8 +29,9 @@ class CalendarActivity : AppCompatActivity() {
         var toDayArr = myDateInTH().calendarDateInTH().split(" ")
         var day = toDayArr[0]
         var dayNumArr = myDateInTH().myDateTodayInTHfun().split(" ")
+        Log.d("TESTEIEI",dayNumArr.toString())
         var dayNum = dayNumArr[0]
-        calendarDateTxt.text = "วันนี้วัน $day ที่ $dayNum"
+        calendarDateTxt.text = "วันนี้ $day ที่ $dayNum"
         //setAreYouOk2Date()
         myCalendar = findViewById(R.id.calendarView)
         var keySend: String = getKeyFromCalendar()
@@ -37,7 +39,8 @@ class CalendarActivity : AppCompatActivity() {
         txtViewColor = findViewById(R.id.textViewCalendar4)
         //btn
         calendarBtn = findViewById(R.id.calendar_btn)
-        val key: String = myDateInTH().myDateTodayInTHfun()
+        val key: String = getKeyFromCalendar()
+
         //calendarBtn.isEnabled = checkData(key) != "null"
         if (checkData(key) == "null") {
             calendarBtn.isEnabled = false
@@ -61,15 +64,19 @@ class CalendarActivity : AppCompatActivity() {
             }
         }
 
-
-
         myCalendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
+            var tempDay : String = dayOfMonth.toString()
+            if (dayOfMonth in 1..9){
+                tempDay = "0$dayOfMonth"
+            }
 //            val msg = "Selected date is $dayOfMonth $month $year"
 //            Snackbar.make(view, msg, Snackbar.LENGTH_SHORT).show()
             //val key: String = myDateInTH().myDateTodayInTHfun()
             var myM: String = changeMonthToTH((month + 1).toString())
             var myY: String = changeYearToTH(year.toString())
-            val key = "$dayOfMonth $myM $myY"
+            val key = "$tempDay $myM $myY"
+            Log.d("TESTEIEI",key)
+            Log.d("TESTEIEI",checkData(key))
             if (checkData(key) == "null") {
                 calendarBtn.isEnabled = false
                 txtViewColor.setBackgroundResource(R.drawable.red)
@@ -83,11 +90,13 @@ class CalendarActivity : AppCompatActivity() {
                 if (checkData(key) == "GOOD") {
                     val intent = Intent(this, CalendarDetailGoodActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    intent.putExtra("date_to_good",key)
                     startActivity(intent)
                 } else {
                     val intent = Intent(this, CalendarDetailBadActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                     intent.putExtra("key_to_bad",keySend)
+                    intent.putExtra("date_to_bad",key)
                     startActivity(intent)
                 }
             }
@@ -106,9 +115,13 @@ class CalendarActivity : AppCompatActivity() {
     private fun getKeyFromCalendar(): String {
         var key = myDateInTH().myDateTodayInTHfun()
         myCalendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
+            var tempDay : String = dayOfMonth.toString()
+            if (dayOfMonth in 1..9){
+                tempDay = "0$dayOfMonth"
+            }
             var myM: String = changeMonthToTH((month + 1).toString())
             var myY: String = changeYearToTH(year.toString())
-            key = "$dayOfMonth $myM $myY"
+            key = "$tempDay $myM $myY"
         }
         return key
     }

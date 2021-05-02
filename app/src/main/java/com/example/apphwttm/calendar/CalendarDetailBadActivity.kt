@@ -26,6 +26,7 @@ class CalendarDetailBadActivity : AppCompatActivity() {
 
 
         var key: String? = intent.getStringExtra("key_to_bad")
+        var setDate: String? = intent.getStringExtra("date_to_bad")
         //Log.d("TESTSET", key.toString())
         var shPWithDetail = getSharedPreferences("USERDATAWITHDETAIL", Context.MODE_PRIVATE)
         var shPWithDetailData = shPWithDetail.getString(key, null)
@@ -54,7 +55,7 @@ class CalendarDetailBadActivity : AppCompatActivity() {
         txtViewDate = findViewById(R.id.textViewDateB)
         var dayArr = myDateInTH().calendarDateInTH().split(" ")
         var dayNumArr = myDateInTH().myDateTodayInTHfun().split(" ")
-        var setDate = "${dayArr[0]} ที่ ${dayNumArr[0]} ${dayArr[1]} ${dayArr[2]}"
+        //var setDate = "${dayArr[0]} ที่ ${dayNumArr[0]} ${dayArr[1]} ${dayArr[2]}"
         txtViewDate.text = setDate
 
         //lisiOfdisease
