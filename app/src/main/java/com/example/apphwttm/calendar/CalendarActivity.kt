@@ -11,7 +11,6 @@ import android.widget.TextView
 import com.example.apphwttm.R
 import com.example.apphwttm.myDateInTH
 import java.time.LocalDate
-import java.util.*
 
 class CalendarActivity : AppCompatActivity() {
 
@@ -44,13 +43,20 @@ class CalendarActivity : AppCompatActivity() {
         //calendarBtn.isEnabled = checkData(key) != "null"
         if (checkData(key) == "null") {
             calendarBtn.isEnabled = false
-            txtViewColor.setBackgroundResource(R.drawable.red)
+            txtViewColor.setBackgroundResource(R.drawable.gray)
             txtViewColor.text = "ไม่มีข้อมูลสำหรับวันนี้"
         } else {
-            calendarBtn.isEnabled = true
-            txtViewColor.setBackgroundResource(R.drawable.green)
-            txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
+            if(checkData(key) == "GOOD"){
+                calendarBtn.isEnabled = true
+                txtViewColor.setBackgroundResource(R.drawable.green)
+                txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
+            }else{
+                calendarBtn.isEnabled = true
+                txtViewColor.setBackgroundResource(R.drawable.red)
+                txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
+            }
         }
+
         calendarBtn.setOnClickListener {
             if (checkData(key) == "GOOD") {
                 val intent = Intent(this, CalendarDetailGoodActivity::class.java)
@@ -79,12 +85,18 @@ class CalendarActivity : AppCompatActivity() {
             Log.d("TESTEIEI",checkData(key))
             if (checkData(key) == "null") {
                 calendarBtn.isEnabled = false
-                txtViewColor.setBackgroundResource(R.drawable.red)
+                txtViewColor.setBackgroundResource(R.drawable.gray)
                 txtViewColor.text = "ไม่มีข้อมูลสำหรับวันนี้"
             } else {
-                calendarBtn.isEnabled = true
-                txtViewColor.setBackgroundResource(R.drawable.green)
-                txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
+                if(checkData(key) == "GOOD"){
+                    calendarBtn.isEnabled = true
+                    txtViewColor.setBackgroundResource(R.drawable.green)
+                    txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
+                }else{
+                    calendarBtn.isEnabled = true
+                    txtViewColor.setBackgroundResource(R.drawable.red)
+                    txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
+                }
             }
             calendarBtn.setOnClickListener {
                 if (checkData(key) == "GOOD") {

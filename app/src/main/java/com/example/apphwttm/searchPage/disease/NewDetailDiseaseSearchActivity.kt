@@ -1,9 +1,11 @@
 package com.example.apphwttm.searchPage.disease
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.apphwttm.R
+import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout
 
 class NewDetailDiseaseSearchActivity : AppCompatActivity() {
@@ -28,33 +30,57 @@ class NewDetailDiseaseSearchActivity : AppCompatActivity() {
         textView1.text = detail_disease_name
 
         //test
-        testTextView = findViewById(R.id.test_textview)
-        testTextView.text = detail_disease_des
         tabsLayout2 = findViewById(R.id.tabLayout2)
-        tabsLayout2.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                //Log.d("TESTTAG",tab.toString())
-                if (tab?.position == 0) {
-                    //Log.d("TESTTAG","TAB1")
-                    testTextView.text = detail_disease_des
-                } else {
-                    //Log.d("TESTTAG","TAB2")
-                    testTextView.text = detail_disease_des_kid
+        testTextView = findViewById(R.id.test_textview)
+        val getIsKid = getSharedPreferences("isKid", Context.MODE_PRIVATE)
+        val isKid = getIsKid.getBoolean("isKid", false)
+        if (isKid) {
+            tabsLayout2.getTabAt(0)?.text = "เด็ก"
+            tabsLayout2.getTabAt(1)?.text = "ผู้ใหญ่"
+            testTextView.text = detail_disease_des_kid
+            tabsLayout2.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    //Log.d("TESTTAG",tab.toString())
+                    if (tab?.position == 0) {
+                        //Log.d("TESTTAG","TAB1")
+                        tab.text = "เด็ก"
+                        testTextView.text = detail_disease_des_kid
+                    } else {
+                        //Log.d("TESTTAG","TAB2")
+                        if (tab != null) {
+                            tab.text = "ผู้ใหญ่"
+                        }
+                        testTextView.text = detail_disease_des
+                    }
                 }
-            }
 
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                override fun onTabUnselected(tab: TabLayout.Tab?) {}
+                override fun onTabReselected(tab: TabLayout.Tab?) {}
+            })
+        } else {
+            tabsLayout2.getTabAt(0)?.text = "ผู้ใหญ่"
+            tabsLayout2.getTabAt(1)?.text = "เด็ก"
+            testTextView.text = detail_disease_des
+            tabsLayout2.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    //Log.d("TESTTAG",tab.toString())
+                    if (tab?.position == 0) {
+                        //Log.d("TESTTAG","TAB1")
+                        tab.text = "ผู้ใหญ่"
+                        testTextView.text = detail_disease_des
+                    } else {
+                        //Log.d("TESTTAG","TAB2")
+                        if (tab != null) {
+                            tab.text = "เด็ก"
+                        }
+                        testTextView.text = detail_disease_des_kid
+                    }
+                }
 
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-
-            }
-
-        })
-
+                override fun onTabUnselected(tab: TabLayout.Tab?) {}
+                override fun onTabReselected(tab: TabLayout.Tab?) {}
+            })
+        }
     }
-
-
 }
 

@@ -51,11 +51,13 @@
         app:tabTextColor="#616161">
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/adult" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/kid" />
