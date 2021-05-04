@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppHWTTM">
-        <activity android:name=".calendar.CalendarDetailBadActivity"></activity>
+        <activity android:name=".admin.add_disease.AddDiseaseDataActivity"></activity>
+        <activity android:name=".admin.add_firstAid.AddFirstAidDataActivity" />
+        <activity android:name=".admin.add_herb.AddHerbDataActivity" />
+        <activity android:name=".admin.AddDataActivity" />
+        <activity android:name=".admin.AdminActivity" />
+        <activity android:name=".calendar.CalendarDetailBadActivity" />
         <activity android:name=".calendar.CalendarDetailGoodActivity" />
         <activity android:name=".searchPage.disease.NewDetailDiseaseSearchActivity" />
         <activity android:name=".calendar.CalendarActivity" />

@@ -77,6 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:text="name"
         android:fontFamily="@font/kodchasan"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -89,6 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:text="1234"
         android:fontFamily="@font/kodchasan"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -106,5 +108,17 @@
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toBottomOf="@+id/profile_tx_3"-->
     <!--        app:layout_constraintVertical_bias="0.471" />-->
+
+
+    <TextView
+        android:id="@+id/settings_btn"
+        android:layout_width="28sp"
+        android:layout_height="28sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
