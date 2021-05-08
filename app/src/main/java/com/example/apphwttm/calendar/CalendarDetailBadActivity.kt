@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.apphwttm.R
 import com.example.apphwttm.myDateInTH
+import com.google.android.material.snackbar.Snackbar
 
 class CalendarDetailBadActivity : AppCompatActivity() {
 
@@ -88,6 +89,7 @@ class CalendarDetailBadActivity : AppCompatActivity() {
         savePicBtn.setOnClickListener {
             var shareBitmap = getBitmapFromView(it.rootView)
             var shareUri = getUriFromBitmap(shareBitmap)
+            Snackbar.make(it,"บันทึกภาพสำเร็จ",Snackbar.LENGTH_SHORT).show()
         }
         //btn share
         shareBtn = findViewById(R.id.buttonBad2)

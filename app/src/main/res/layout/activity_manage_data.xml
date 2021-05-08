@@ -5,7 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_main1"
-    tools:context=".admin.AddDataActivity">
+    tools:context=".admin.ManageDataActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/data_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/data_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/data_menu"
+            app:title="Admin menu"
+            app:titleTextAppearance="@style/TextAppearance.App.Subtitle1" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -47,4 +66,6 @@
 
             />
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

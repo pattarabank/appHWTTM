@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_main1"
-    tools:context=".admin.manage_disease.AddDiseaseDataActivity">
-
+    tools:context=".admin.manage_herb.EditHerbData2Activity">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -22,64 +21,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/kodchasan"
-            android:text="เพิ่มโรคลงในฐานข้อมูล"
+            android:text="แก้ไขสมุนไพรในฐานข้อมูล"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_herb_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add_disease_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginBottom="10sp"
+            android:hint="ชื่อสมุนไพร">
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20sp"
-                android:layout_marginTop="20sp"
-                android:layout_marginEnd="5sp"
-                android:layout_marginBottom="10sp"
-                android:layout_weight="2"
-                android:hint="ชื่อโรค">
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:fontFamily="@font/kodchasan" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:fontFamily="@font/kodchasan" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add_disease_add_tag"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5sp"
-                android:layout_marginTop="20sp"
-                android:layout_marginEnd="20sp"
-                android:layout_marginBottom="10sp"
-                android:layout_weight="3"
-                android:hint="tag"
-                app:endIconMode="dropdown_menu">
-
-                <AutoCompleteTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:fontFamily="@font/kodchasan" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/add_disease_keyword"
+            android:id="@+id/edit_herb_keyword"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,10 +55,10 @@
             android:layout_marginTop="10sp"
             android:layout_marginRight="20sp"
             android:layout_marginBottom="10sp"
-            android:hint="คีย์เวิร์ดของโรค"
+            android:hint="คีย์เวิร์ดของสมุนไพร"
             app:counterEnabled="true"
             app:counterMaxLength="300"
-            app:helperText="ใส่คีย์เวิร์ดของโรคคั่นด้วย ,">
+            app:helperText="ใส่คีย์เวิร์ดของสมุนไพรคั่นด้วย ,">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -103,7 +71,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/add_disease_des"
+            android:id="@+id/edit_herb_des"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,28 +79,7 @@
             android:layout_marginTop="10sp"
             android:layout_marginRight="20sp"
             android:layout_marginBottom="10sp"
-            android:hint="ใส่รายละเอียดของโรค">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:fontFamily="@font/kodchasan"
-                android:inputType="text|textMultiLine" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/add_disease_des_kid"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginTop="10sp"
-            android:layout_marginRight="20sp"
-            android:layout_marginBottom="10sp"
-            android:hint="ใส่รายละเอียดสำหรับเด็ก"
-            app:helperText="ถ้าไม่มีให้เว้นว่าง">
+            android:hint="รายละเอียดของสมุนไพร">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -144,14 +91,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/add_disease_btn"
+            android:id="@+id/herb_edit_data_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
             android:fontFamily="@font/kodchasan"
-            android:text="เพิ่มข้อมูล" />
+            android:text="แก้ไขข้อมูล" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

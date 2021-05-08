@@ -1,4 +1,4 @@
-package com.example.apphwttm.admin.add_disease
+package com.example.apphwttm.admin.manage_disease
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

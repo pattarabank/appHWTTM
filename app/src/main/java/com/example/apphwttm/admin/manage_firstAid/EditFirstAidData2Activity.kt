@@ -1,4 +1,4 @@
-package com.example.apphwttm.admin.add_herb
+package com.example.apphwttm.admin.manage_firstAid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,49 +11,52 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class AddHerbDataActivity : AppCompatActivity() {
+class EditFirstAidData2Activity : AppCompatActivity() {
 
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
     private val firebaseFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val TAG = "ADDDATATOFIRESTORE"
 
-    private lateinit var herbName: TextInputLayout
-    private lateinit var herbKeyword: TextInputLayout
-    private lateinit var herbDes: TextInputLayout
-    private lateinit var herbAddBtn: Button
+    private lateinit var firstAidName: TextInputLayout
+    private lateinit var firstAidKeyword: TextInputLayout
+    private lateinit var firstAidDes: TextInputLayout
+    private lateinit var firstAidAddBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_herb_data)
+        setContentView(R.layout.activity_edit_first_aid_data2)
 
-        herbName = findViewById(R.id.add_herb_name)
+        var bundle: Bundle? = intent.extras
+        var docId: String = bundle!!.getString("send_to_detail_firstaid_id").toString()
+
+        firstAidName = findViewById(R.id.edit_firstAid_name)
         var name = ""
-        herbName.editText?.doOnTextChanged { text, start, before, count ->
+        firstAidName.editText?.doOnTextChanged { text, start, before, count ->
             name = text.toString()
         }
 
-        herbKeyword = findViewById(R.id.add_herb_keyword)
+        firstAidKeyword = findViewById(R.id.edit_firstAid_keyword)
         var keywordLine = ""
-        herbKeyword.editText?.doOnTextChanged { text, start, before, count ->
+        firstAidKeyword.editText?.doOnTextChanged { text, start, before, count ->
             keywordLine = text.toString()
         }
 
-        herbDes = findViewById(R.id.add_herb_des)
+        firstAidDes = findViewById(R.id.edit_firstAid_des)
         var des = ""
-        herbDes.editText?.doOnTextChanged { text, start, before, count ->
+        firstAidDes.editText?.doOnTextChanged { text, start, before, count ->
             des = text.toString()
         }
 
-        herbAddBtn = findViewById(R.id.herb_add_data_btn)
-        herbAddBtn.setOnClickListener {
-            addDataToFireStore(name, keywordLine, des)
-            Toast.makeText(this,"เพิ่มข้อมูลสมุนไพรใหม่สำเร็จ",Toast.LENGTH_LONG).show()
+        firstAidAddBtn = findViewById(R.id.firstAid_edit_data_btn)
+        firstAidAddBtn.setOnClickListener {
+            addDataToFireStore(name, keywordLine, des,docId)
+            Toast.makeText(this,"แก้ไขข้อมูลการปฐมพยาบาลเบื้องต้นสำเร็จ", Toast.LENGTH_LONG).show()
             finish()
         }
 
     }
 
-    private fun addDataToFireStore(name: String, keyword: String, des: String) {
+    private fun addDataToFireStore(name: String, keyword: String, des: String,docId:String) {
         var addName = name
         var addKeyword = keyword.trim().split(",")
         var addDes = des
@@ -65,10 +68,10 @@ class AddHerbDataActivity : AppCompatActivity() {
             "des" to addDes,
             "keyword" to addKeyword
         )
-        firebaseFirestore.collection("testCollection")
-            .add(data)
+        firebaseFirestore.collection("testCollection").document(docId)
+            .set(data)
             .addOnSuccessListener {
-                Log.d(TAG, "DocumentSnapshot written with ID: ${it.id}")
+                Log.d(TAG, "DocumentSnapshot written with ID: $it")
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding document", e)

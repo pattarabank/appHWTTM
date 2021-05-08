@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/memu_data_1"
+        android:title="เพิ่มข้อมูล"
+        />
+    <item
+        android:id="@+id/memu_data_2"
+        android:title="แก้ไขข้อมูล" />
+    <item
+        android:id="@+id/memu_data_3"
+        android:title="ลบข้อมูล" />
+</menu>

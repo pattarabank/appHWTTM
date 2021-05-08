@@ -33,7 +33,7 @@
     <string name="healthCare_tx7">แตะที่ icon</string>
 
     <string name="profile_tx_1">ชื่อ</string>
-    <string name="profile_tx_2">ปีเกิด</string>
+    <string name="profile_tx_2">พ.ศ. ที่เกิด</string>
     <string name="profile_tx_3">โรคประจำตัว</string>
     <string name="profile_btn">ดูประวัติสุขภาพ</string>
     <string name="dds_detail_tx">รายละเอียด</string>
@@ -60,5 +60,7 @@
     <string name="adult">ผู้ใหญ่</string>
     <string name="kid">เด็ก</string>
 
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
 
 </resources>

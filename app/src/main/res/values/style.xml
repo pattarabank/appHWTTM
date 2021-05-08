@@ -13,11 +13,21 @@
         <item name="headerTitleColor">#fff</item>
 
         <item name="dialogActionButtonColor">#8BC34A</item>
+
+
     </style>
+
     <style name="CustomTabStyle" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/kodchasan</item>
     </style>
+
+    <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/kodchasan</item>
+        <item name="android:fontFamily">@font/kodchasan</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>
 <!--    #CAE7B9-->
 <!--    #8BC34A-->

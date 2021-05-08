@@ -38,7 +38,7 @@ class AdminActivity : AppCompatActivity() {
         LoginBtn.setOnClickListener {
             Log.d("TESTADMIN", "$tempId $tempPass")
             if (tempId == ADMINID && tempPass == ADMINPASSWORD) {
-                val intent = Intent(this, AddDataActivity::class.java)
+                val intent = Intent(this, ManageDataActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
                 finish()
