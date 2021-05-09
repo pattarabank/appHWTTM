@@ -7,8 +7,10 @@ import android.widget.Button
 import androidx.appcompat.widget.Toolbar
 import com.example.apphwttm.R
 import com.example.apphwttm.admin.manage_disease.AddDiseaseDataActivity
+import com.example.apphwttm.admin.manage_disease.DeleteDiseaseDataActivity
 import com.example.apphwttm.admin.manage_disease.EditDiseaseDataActivity
 import com.example.apphwttm.admin.manage_firstAid.AddFirstAidDataActivity
+import com.example.apphwttm.admin.manage_firstAid.DeleteFirstAidDataActivity
 import com.example.apphwttm.admin.manage_firstAid.EditFirstAidDataActivity
 import com.example.apphwttm.admin.manage_herb.AddHerbDataActivity
 import com.example.apphwttm.admin.manage_herb.DeleteHerbDataActivity
@@ -108,13 +110,13 @@ class ManageDataActivity : AppCompatActivity() {
                     }
 
                     addfirstAidBtn.setOnClickListener {
-                        val intent = Intent(this, DeleteHerbDataActivity::class.java)
+                        val intent = Intent(this, DeleteFirstAidDataActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                         startActivity(intent)
                     }
 
                     addDiseaseBtn.setOnClickListener {
-                        val intent = Intent(this, DeleteHerbDataActivity::class.java)
+                        val intent = Intent(this, DeleteDiseaseDataActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                         startActivity(intent)
                     }

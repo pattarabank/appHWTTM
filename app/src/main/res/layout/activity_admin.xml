@@ -38,7 +38,7 @@
             android:layout_marginTop="20sp"
             android:layout_marginRight="20sp"
             android:layout_marginBottom="10sp"
-            android:hint="Enter ID"
+            android:hint="Username"
             app:boxBackgroundMode="outline">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -58,7 +58,7 @@
             android:layout_marginTop="10sp"
             android:layout_marginRight="20sp"
             android:layout_marginBottom="20sp"
-            android:hint="Enter Password"
+            android:hint="Password"
             app:boxBackgroundMode="outline"
             app:endIconMode="password_toggle">
 
