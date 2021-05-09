@@ -62,5 +62,44 @@
 
     <string name="navigation_drawer_open">open</string>
     <string name="navigation_drawer_close">close</string>
+    <string name="เพิ่มโรคลงในฐานข้อมูล">เพิ่มโรคลงในฐานข้อมูล</string>
+    <string name="ชื่อโรค">ชื่อโรค</string>
+    <string name="tag">tag</string>
+    <string name="คีย์เวิร์ดของโรค">คีย์เวิร์ดของโรค</string>
+    <string name="รายละเอียดของโรคสำหรับผู้ใหญ่">รายละเอียดของโรคสำหรับผู้ใหญ่</string>
+    <string name="รายละเอียดโรคสำหรับเด็ก">รายละเอียดโรคสำหรับเด็ก</string>
+    <string name="เพิ่มข้อมูล">เพิ่มข้อมูล</string>
+    <string name="เพิ่มการปฐมพยาบาลเบื้องต้นลงในฐานข้อมูล">เพิ่มการปฐมพยาบาลเบื้องต้น\nลงในฐานข้อมูล</string>
+    <string name="ชื่อการปฐมพยาบาลเบื้องต้น">ชื่อการปฐมพยาบาลเบื้องต้น</string>
+    <string name="คีย์เวิร์ดของการปฐมพยาบาลเบื้องต้น">คีย์เวิร์ดของการปฐมพยาบาลเบื้องต้น</string>
+    <string name="รายละเอียดของการปฐมพยาบาลเบื้องต้น">รายละเอียดของการปฐมพยาบาลเบื้องต้น</string>
+
+    <string name="เพิ่มสมุนไพรลงในฐานข้อมูล">เพิ่มสมุนไพรลงในฐานข้อมูล</string>
+    <string name="ชื่อสมุนไพร">ชื่อสมุนไพร</string>
+    <string name="คีย์เวิร์ดของสมุนไพร">คีย์เวิร์ดของสมุนไพร</string>
+    <string name="รายละเอียดของสมุนไพร">รายละเอียดของสมุนไพร</string>
+
+    <string name="admin">Admin</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="เลือกสมุนไพรที่ต้องการลบ">เลือกสมุนไพรที่ต้องการลบ</string>
+    <string name="อาการที่เกี่ยวข้องกับลำตัว">อาการที่เกี่ยวข้องกับลำตัว</string>
+    <string name="อาการที่เกี่ยวข้องกับลำตัวส่วนล่าง">อาการที่เกี่ยวข้องกับลำตัวส่วนล่าง</string>
+    <string name="เลือกโรคที่ต้องการแก้ไข">เลือกโรคที่ต้องการแก้ไข</string>
+    <string name="เลือกการปฐมพยาบาลเบื้องต้นที่ต้องการแก้ไข">เลือกการปฐมพยาบาลเบื้องต้น\nที่ต้องการแก้ไข</string>
+    <string name="แก้ไขการปฐมพยาบาลเบื้องต้นในฐานข้อมูล">แก้ไขการปฐมพยาบาลเบื้องต้น\nในฐานข้อมูล</string>
+
+    <string name="แก้ไขข้อมูล">แก้ไขข้อมูล</string>
+    <string name="เลือกสมุนไพรที่ต้องการแก้ไข">เลือกสมุนไพรที่ต้องการแก้ไข</string>
+    <string name="แก้ไขสมุนไพรในฐานข้อมูล">แก้ไขสมุนไพรในฐานข้อมูล</string>
+    <string name="add_disease_data">add Disease Data</string>
+    <string name="add_herb_data">add Herb Data</string>
+    <string name="add_first_aid_data">add First Aid Data</string>
+    <string name="ดูรายละเอียดข้อมูลวันนี้">ดูรายละเอียดข้อมูลวันนี้</string>
+    <string name="ดูรายละเอียด">ดูรายละเอียด</string>
+    <string name="วันที่คุณเลือก">วันที่คุณเลือก :</string>
+    <string name="มีข้อมูล">มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง</string>
+
 
 </resources>

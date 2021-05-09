@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/kodchasan"
-            android:text="แก้ไขการปฐมพยาบาลเบื้องต้น\nในฐานข้อมูล"
+            android:text="@string/แก้ไขการปฐมพยาบาลเบื้องต้นในฐานข้อมูล"
             android:gravity="center"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -36,7 +36,7 @@
             android:layout_marginTop="20sp"
             android:layout_marginRight="20sp"
             android:layout_marginBottom="10sp"
-            android:hint="ชื่อการปฐมพยาบาลเบื้องต้น">
+            android:hint="@string/ชื่อการปฐมพยาบาลเบื้องต้น">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -56,7 +56,7 @@
             android:layout_marginTop="10sp"
             android:layout_marginRight="20sp"
             android:layout_marginBottom="10sp"
-            android:hint="คีย์เวิร์ดของการปฐมพยาบาลเบื้องต้น"
+            android:hint="@string/คีย์เวิร์ดของการปฐมพยาบาลเบื้องต้น"
             app:counterEnabled="true"
             app:counterMaxLength="300"
             app:helperText="ใส่คีย์เวิร์ดของการปฐมพยาบาลเบื้องต้นคั่นด้วย ,">
@@ -80,7 +80,7 @@
             android:layout_marginTop="10sp"
             android:layout_marginRight="20sp"
             android:layout_marginBottom="10sp"
-            android:hint="รายละเอียดของการปฐมพยาบาลเบื้องต้น">
+            android:hint="@string/รายละเอียดของการปฐมพยาบาลเบื้องต้น">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
             android:fontFamily="@font/kodchasan"
-            android:text="แก้ไขข้อมูล" />
+            android:text="@string/แก้ไขข้อมูล" />
 
     </LinearLayout>
 

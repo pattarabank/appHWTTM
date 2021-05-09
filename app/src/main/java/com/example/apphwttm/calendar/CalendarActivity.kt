@@ -18,6 +18,7 @@ class CalendarActivity : AppCompatActivity() {
     private lateinit var myCalendar: CalendarView
     private lateinit var calendarBtn: Button
     private lateinit var txtViewColor: TextView
+    private lateinit var calendarIcStatus: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,34 +26,38 @@ class CalendarActivity : AppCompatActivity() {
         //Log.d("TESTSET",myDateInTH().calendarDateInTH())
         //var testTextCalendar: String = ""
         calendarDateTxt = findViewById(R.id.textViewCalendar1)
-        var toDayArr = myDateInTH().calendarDateInTH().split(" ")
-        var day = toDayArr[0]
-        var dayNumArr = myDateInTH().myDateTodayInTHfun().split(" ")
-        Log.d("TESTEIEI",dayNumArr.toString())
-        var dayNum = dayNumArr[0]
+        val toDayArr = myDateInTH().calendarDateInTH().split(" ")
+        val day = toDayArr[0]
+        val dayNumArr = myDateInTH().myDateTodayInTHfun().split(" ")
+        Log.d("TESTEIEI", dayNumArr.toString())
+        val dayNum = dayNumArr[0]
         calendarDateTxt.text = "วันนี้ $day ที่ $dayNum"
         //setAreYouOk2Date()
         myCalendar = findViewById(R.id.calendarView)
-        var keySend: String = getKeyFromCalendar()
+        val keySend: String = getKeyFromCalendar()
         //color
         txtViewColor = findViewById(R.id.textViewCalendar4)
         //btn
         calendarBtn = findViewById(R.id.calendar_btn)
+        calendarIcStatus = findViewById(R.id.calendar_ic_status)
         val key: String = getKeyFromCalendar()
 
         //calendarBtn.isEnabled = checkData(key) != "null"
         if (checkData(key) == "null") {
             calendarBtn.isEnabled = false
             txtViewColor.setBackgroundResource(R.drawable.gray)
+            calendarIcStatus.setBackgroundResource(R.drawable.neutral)
             txtViewColor.text = "ไม่มีข้อมูลสำหรับวันนี้"
         } else {
-            if(checkData(key) == "GOOD"){
-                calendarBtn.isEnabled = true
+            if (checkData(key) == "GOOD") {
+                calendarBtn.isEnabled = false
                 txtViewColor.setBackgroundResource(R.drawable.green)
-                txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
-            }else{
+                calendarIcStatus.setBackgroundResource(R.drawable.happy)
+                txtViewColor.text = "วันนี้คุณบันทึกว่าสบายดี"
+            } else {
                 calendarBtn.isEnabled = true
                 txtViewColor.setBackgroundResource(R.drawable.red)
+                calendarIcStatus.setBackgroundResource(R.drawable.sad)
                 txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
             }
         }
@@ -65,36 +70,39 @@ class CalendarActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this, CalendarDetailBadActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                intent.putExtra("key_to_bad",keySend)
+                intent.putExtra("key_to_bad", keySend)
                 startActivity(intent)
             }
         }
 
         myCalendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            var tempDay : String = dayOfMonth.toString()
-            if (dayOfMonth in 1..9){
+            var tempDay: String = dayOfMonth.toString()
+            if (dayOfMonth in 1..9) {
                 tempDay = "0$dayOfMonth"
             }
 //            val msg = "Selected date is $dayOfMonth $month $year"
 //            Snackbar.make(view, msg, Snackbar.LENGTH_SHORT).show()
             //val key: String = myDateInTH().myDateTodayInTHfun()
-            var myM: String = changeMonthToTH((month + 1).toString())
-            var myY: String = changeYearToTH(year.toString())
+            val myM: String = changeMonthToTH((month + 1).toString())
+            val myY: String = changeYearToTH(year.toString())
             val key = "$tempDay $myM $myY"
-            Log.d("TESTEIEI",key)
-            Log.d("TESTEIEI",checkData(key))
+            Log.d("TESTEIEI", key)
+            Log.d("TESTEIEI", checkData(key))
             if (checkData(key) == "null") {
                 calendarBtn.isEnabled = false
                 txtViewColor.setBackgroundResource(R.drawable.gray)
+                calendarIcStatus.setBackgroundResource(R.drawable.neutral)
                 txtViewColor.text = "ไม่มีข้อมูลสำหรับวันนี้"
             } else {
-                if(checkData(key) == "GOOD"){
-                    calendarBtn.isEnabled = true
+                if (checkData(key) == "GOOD") {
+                    calendarBtn.isEnabled = false
                     txtViewColor.setBackgroundResource(R.drawable.green)
-                    txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
-                }else{
+                    calendarIcStatus.setBackgroundResource(R.drawable.happy)
+                    txtViewColor.text = "วันนี้คุณบันทึกว่าสบายดี"
+                } else {
                     calendarBtn.isEnabled = true
                     txtViewColor.setBackgroundResource(R.drawable.red)
+                    calendarIcStatus.setBackgroundResource(R.drawable.sad)
                     txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
                 }
             }
@@ -102,13 +110,13 @@ class CalendarActivity : AppCompatActivity() {
                 if (checkData(key) == "GOOD") {
                     val intent = Intent(this, CalendarDetailGoodActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                    intent.putExtra("date_to_good",key)
+                    intent.putExtra("date_to_good", key)
                     startActivity(intent)
                 } else {
                     val intent = Intent(this, CalendarDetailBadActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                    intent.putExtra("key_to_bad",keySend)
-                    intent.putExtra("date_to_bad",key)
+                    intent.putExtra("key_to_bad", keySend)
+                    intent.putExtra("date_to_bad", key)
                     startActivity(intent)
                 }
             }
@@ -127,21 +135,21 @@ class CalendarActivity : AppCompatActivity() {
     private fun getKeyFromCalendar(): String {
         var key = myDateInTH().myDateTodayInTHfun()
         myCalendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            var tempDay : String = dayOfMonth.toString()
-            if (dayOfMonth in 1..9){
+            var tempDay: String = dayOfMonth.toString()
+            if (dayOfMonth in 1..9) {
                 tempDay = "0$dayOfMonth"
             }
-            var myM: String = changeMonthToTH((month + 1).toString())
-            var myY: String = changeYearToTH(year.toString())
+            val myM: String = changeMonthToTH((month + 1).toString())
+            val myY: String = changeYearToTH(year.toString())
             key = "$tempDay $myM $myY"
         }
         return key
     }
 
     private fun setAreYouOk2Date() {
-        var day: String
-        var month: String
-        var year: String
+        val day: String
+        val month: String
+        val year: String
         val date = LocalDate.now().toString().split("-")
         day = date[2]
         year = (date[0].toInt() + 543).toString()
@@ -207,8 +215,8 @@ class CalendarActivity : AppCompatActivity() {
         shP2Edit.apply {
             putString("KEY", "eiei2")
         }.apply()
-        var test1 = shP1.getString("KEY", null)
-        var test2 = shP2.getString("KEY", null)
+        val test1 = shP1.getString("KEY", null)
+        val test2 = shP2.getString("KEY", null)
         Log.d("TESTSHP", test1.toString())
         Log.d("TESTSHP", test2.toString())
     }

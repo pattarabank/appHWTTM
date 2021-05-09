@@ -68,7 +68,7 @@
         android:id="@+id/textViewCalendar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ดูรายละเอียดข้อมูลวันนี้"
+        android:text="@string/ดูรายละเอียดข้อมูลวันนี้"
         android:gravity="center"
         android:fontFamily="@font/kodchasan"
         android:textSize="14sp"
@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="ดูข้อมูล"
+        android:text="@string/ดูรายละเอียด"
         android:textColor="#616161"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,26 +97,38 @@
         android:textColor="#616161"
         android:fontFamily="@font/kodchasan"
         android:textSize="14sp"
-        android:text="วันที่คุณเลือก : "
+        android:text="@string/วันที่คุณเลือก"
         app:layout_constraintBottom_toTopOf="@+id/calendar_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCalendar2" />
+
 
     <TextView
         android:id="@+id/textViewCalendar4"
         android:layout_width="180sp"
         android:layout_height="75sp"
         android:layout_marginEnd="32sp"
-        android:padding="8sp"
         android:background="@drawable/calendar_rounded"
         android:fontFamily="@font/kodchasan"
         android:gravity="center"
-        android:text="มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
+        android:padding="8sp"
+        android:text="@string/มีข้อมูล"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/calendar_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.352"
         app:layout_constraintStart_toEndOf="@+id/textViewCalendar3"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCalendar2" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCalendar2"
+        app:layout_constraintVertical_bias="0.504" />
+
+    <TextView
+        android:id="@+id/calendar_ic_status"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewCalendar4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewCalendar4"
+        app:layout_constraintTop_toTopOf="@+id/textViewCalendar4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

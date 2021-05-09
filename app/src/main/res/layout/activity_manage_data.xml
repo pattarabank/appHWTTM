@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/kodchasan"
-            android:text="add Disease Data"
+            android:text="@string/add_disease_data"
 
             />
 
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/kodchasan"
-            android:text="add Herb Data"
+            android:text="@string/add_herb_data"
 
             />
 
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/kodchasan"
-            android:text="add First Aid Data"
+            android:text="@string/add_first_aid_data"
 
             />
     </LinearLayout>

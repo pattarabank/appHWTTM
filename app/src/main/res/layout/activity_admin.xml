@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Admin"
+            android:text="@string/admin"
             android:fontFamily="@font/kodchasan"
             android:textStyle="bold"
             android:textSize="26sp"
@@ -38,7 +38,7 @@
             android:layout_marginTop="20sp"
             android:layout_marginRight="20sp"
             android:layout_marginBottom="10sp"
-            android:hint="Username"
+            android:hint="@string/username"
             app:boxBackgroundMode="outline">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -58,7 +58,7 @@
             android:layout_marginTop="10sp"
             android:layout_marginRight="20sp"
             android:layout_marginBottom="20sp"
-            android:hint="Password"
+            android:hint="@string/password"
             app:boxBackgroundMode="outline"
             app:endIconMode="password_toggle">
 
@@ -75,7 +75,7 @@
             android:id="@+id/admin_login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="@string/login"
             android:layout_gravity="center"
             android:fontFamily="@font/kodchasan"
             />

@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/kodchasan"
         android:padding="20sp"
-        android:text="tempName"
+        android:text=""
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
             android:fontFamily="@font/kodchasan"
             android:padding="12sp"
             android:scrollbars="vertical"
-            android:text="tempDes"
+            android:text=""
             android:textSize="14sp" />
     </ScrollView>
 
