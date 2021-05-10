@@ -70,6 +70,7 @@ class CalendarActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this, CalendarDetailBadActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                intent.putExtra("date_to_bad",key)
                 intent.putExtra("key_to_bad", keySend)
                 startActivity(intent)
             }
@@ -115,7 +116,8 @@ class CalendarActivity : AppCompatActivity() {
                 } else {
                     val intent = Intent(this, CalendarDetailBadActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                    intent.putExtra("key_to_bad", keySend)
+                    //intent.putExtra("key_to_bad", keySend)
+                    intent.putExtra("key_to_bad", key)
                     intent.putExtra("date_to_bad", key)
                     startActivity(intent)
                 }
@@ -128,7 +130,14 @@ class CalendarActivity : AppCompatActivity() {
 
     private fun checkData(toDayKey: String): String {
         val shPData = getSharedPreferences("USERDATAWITHDETAIL", Context.MODE_PRIVATE)
-        return shPData.getString(toDayKey, null).toString()
+        var temp1 = shPData.getString(toDayKey, null).toString()
+        val shPOnlyUserData = getSharedPreferences("USERDATA", Context.MODE_PRIVATE)
+        var temp2 = shPOnlyUserData.getString(toDayKey, null).toString()
+        if (temp1 == "null") {
+            return temp2
+        } else {
+            return temp1
+        }
 
     }
 

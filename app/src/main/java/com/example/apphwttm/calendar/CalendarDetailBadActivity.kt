@@ -40,17 +40,28 @@ class CalendarDetailBadActivity : AppCompatActivity() {
 
         requestPermission()
 
-        var key: String? = intent.getStringExtra("key_to_bad")
-        var setDate: String? = intent.getStringExtra("date_to_bad")
+        val key: String? = intent.getStringExtra("key_to_bad")
+        val setDate: String? = intent.getStringExtra("date_to_bad")
+        var str1: List<String> = emptyList()
+        var detailTxt: String = ""
         //Log.d("TESTSET", key.toString())
-        var shPWithDetail = getSharedPreferences("USERDATAWITHDETAIL", Context.MODE_PRIVATE)
-        var shPWithDetailData = shPWithDetail.getString(key, null)
-        //Log.d("TESTSET", shPWithDetailData.toString())
-        var str1 = shPWithDetailData!!.split("+")
-        var detailTxt = str1?.last()
-        var myList: String = str1[0]
-        var myListTxt = myList.split("-")
-        var size = myListTxt.size - 1
+        val shPWithDetail = getSharedPreferences("USERDATAWITHDETAIL", Context.MODE_PRIVATE)
+        val shPWithDetailData = shPWithDetail.getString(key, null)
+        Log.d("TESTSETt", shPWithDetailData.toString())
+        if (shPWithDetailData == null) {
+            val shPWithOutDetail = getSharedPreferences("USERDATA", Context.MODE_PRIVATE)
+            val shPWithOutDetailData = shPWithOutDetail.getString(key, null)
+            Log.d("TESTSETt", shPWithOutDetailData.toString())
+            str1 = shPWithOutDetailData!!.split("+")
+        } else {
+            str1 = shPWithDetailData!!.split("+")
+            detailTxt = str1?.last()
+        }
+
+
+        val myList: String = str1[0]
+        val myListTxt = myList.split("-")
+        //var size = myListTxt.size - 1
         var setTextmyList = ""
         for (temp in myListTxt)
             if (temp == myListTxt[myListTxt.size - 1]) {
@@ -58,6 +69,8 @@ class CalendarDetailBadActivity : AppCompatActivity() {
             } else {
                 setTextmyList += "$temp "
             }
+
+
         //Log.d("TESTSET", setTextmyList)
 
         //name
@@ -89,7 +102,7 @@ class CalendarDetailBadActivity : AppCompatActivity() {
         savePicBtn.setOnClickListener {
             var shareBitmap = getBitmapFromView(it.rootView)
             var shareUri = getUriFromBitmap(shareBitmap)
-            Snackbar.make(it,"บันทึกภาพสำเร็จ",Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(it, "บันทึกภาพสำเร็จ", Snackbar.LENGTH_SHORT).show()
         }
         //btn share
         shareBtn = findViewById(R.id.buttonBad2)
@@ -101,13 +114,13 @@ class CalendarDetailBadActivity : AppCompatActivity() {
 
     }
 
-    private fun shareImage(imageUri: Uri){
+    private fun shareImage(imageUri: Uri) {
         val share = Intent(Intent.ACTION_SEND)
-        share.putExtra(Intent.EXTRA_TEXT,"HealthActivityPicture")
-        share.putExtra(Intent.EXTRA_STREAM,imageUri)
+        share.putExtra(Intent.EXTRA_TEXT, "HealthActivityPicture")
+        share.putExtra(Intent.EXTRA_STREAM, imageUri)
         share.type = "image/*"
         share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        startActivity(Intent.createChooser(share,"Share Image"))
+        startActivity(Intent.createChooser(share, "Share Image"))
     }
 
     private fun getBitmapFromView(view: View): Bitmap {
@@ -126,28 +139,41 @@ class CalendarDetailBadActivity : AppCompatActivity() {
 
     private fun getUriFromBitmap(bitmap: Bitmap): Uri {
         val path =
-            MediaStore.Images.Media.insertImage(this.contentResolver, bitmap, "HealthActivityPicture", null)
+            MediaStore.Images.Media.insertImage(
+                this.contentResolver,
+                bitmap,
+                "HealthActivityPicture",
+                null
+            )
         return Uri.parse(path)
     }
 
-    private fun requestPermission(){
+    private fun requestPermission() {
         // Here, thisActivity is the current activity
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
 
             // Permission is not granted
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+            ) {
                 // Show an explanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
             } else {
                 // No explanation needed, we can request the permission.
-                ActivityCompat.requestPermissions(this,
+                ActivityCompat.requestPermissions(
+                    this,
                     arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                    MY_PERMISSIONS_REQUEST_READ_CONTACTS)
+                    MY_PERMISSIONS_REQUEST_READ_CONTACTS
+                )
 
                 // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
                 // app-defined int constant. The callback method gets the

@@ -40,6 +40,9 @@ class RegisterActivity : AppCompatActivity() {
         regisYearBtn = findViewById(R.id.extended_fab)
         user_year_txt = findViewById(R.id.user_year_txt)
         user_year_txt.text = null
+        user_year_txt.setOnClickListener {
+            btnYear()
+        }
         user_name_txt = findViewById(R.id.user_name_input_txt)
         user_name_txt.text = null
         regisYearBtn.setOnClickListener {
@@ -97,36 +100,11 @@ class RegisterActivity : AppCompatActivity() {
 
         }
 
-//        val outlinedButton: Button = findViewById(R.id.outlinedButton)
-//        val nameTextField: TextInputLayout = findViewById(R.id.nameTextField)
-//        val birthDateTextField: TextInputLayout = findViewById(R.id.birthDateTextField)
-//
-//        outlinedButton.setOnClickListener {
-//            var name = nameTextField.editText?.text.toString()
-//            val sharedPreferencesName = getSharedPreferences("sharedPrefsName", Context.MODE_PRIVATE)
-//            val editorName = sharedPreferencesName.edit()
-//            editorName.apply {
-//                putString("sharedPrefsName", name)
-//            }.apply()
-//
-//
-//            var bDate = birthDateTextField.editText?.text.toString()
-//            val sharedPreferencesBDate = getSharedPreferences("sharedPrefs_bDate", Context.MODE_PRIVATE)
-//            val editorBDate = sharedPreferencesBDate.edit()
-//            editorBDate.apply {
-//                putString("sharedPrefs_bDate", bDate)
-//            }.apply()
-//
-//
-//
-//            //Snackbar.make(it, "$name $bDate $disease", Snackbar.LENGTH_SHORT).show()
-//
-//            val intent = Intent(this, HomeActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//
-//        }
 
+
+    }
+
+    private fun regisFun(){
 
     }
 
@@ -151,9 +129,3 @@ class RegisterActivity : AppCompatActivity() {
             .build().show()
     }
 }
-//            var disease = diseaseTextField.editText?.text.toString()
-//            val sharedPreferencesDisease = getSharedPreferences("sharedPrefsDisease", Context.MODE_PRIVATE)
-//            val editorDisease = sharedPreferencesDisease.edit()
-//            editorDisease.apply {
-//                putString("sharedPrefsDisease", disease)
-//            }.apply()

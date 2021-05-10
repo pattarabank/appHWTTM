@@ -159,6 +159,7 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
 
     override fun onStart() {
         super.onStart()
+        startFirestore()
         if (firebaseAuth.currentUser == null) {
             firebaseAuth.signInAnonymously().addOnCompleteListener() {
                 if (!it.isSuccessful) {

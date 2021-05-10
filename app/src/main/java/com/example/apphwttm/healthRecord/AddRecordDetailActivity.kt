@@ -22,6 +22,7 @@ class AddRecordDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_record_detail)
+
         var userInputText: String = ""
         editTextAddRecordDetail = findViewById(R.id.editTextTextMultiLine2)
         editTextAddRecordDetail.addTextChangedListener(object : TextWatcher {
@@ -38,8 +39,9 @@ class AddRecordDetailActivity : AppCompatActivity() {
 
         addRecordDetailBtn = findViewById(R.id.AddRecordDetail_btn)
         addRecordDetailBtn.setOnClickListener {
-            Snackbar.make(it, "บันทึกสำเร็จ", Snackbar.LENGTH_SHORT).show()
             saveUserTodayDetailData(userInputText)
+            Snackbar.make(it, "บันทึกสำเร็จ", Snackbar.LENGTH_SHORT).show()
+
         }
 
 
