@@ -16,7 +16,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private lateinit var bottomBar: BottomNavigationView
     private lateinit var calendarBtn: ExtendedFloatingActionButton
-    private lateinit var settingsBtn: TextView
+//    private lateinit var settingsBtn: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,12 +75,12 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        settingsBtn = findViewById(R.id.settings_btn)
-        settingsBtn.setOnClickListener {
-            val intent = Intent(this,AdminActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity(intent)
-        }
+//        settingsBtn = findViewById(R.id.settings_btn)
+//        settingsBtn.setOnClickListener {
+//            val intent = Intent(this,AdminActivity::class.java)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+//            startActivity(intent)
+//        }
 
     }
 }
