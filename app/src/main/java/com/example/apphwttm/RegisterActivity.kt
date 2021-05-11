@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.view.get
+import com.example.apphwttm.admin.AdminActivity
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
@@ -30,6 +31,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var myCalendar: TextView
     private lateinit var user_year_txt: TextView
     private lateinit var user_name_txt: TextInputEditText
+    private lateinit var regis_setting_ic: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -100,13 +102,15 @@ class RegisterActivity : AppCompatActivity() {
 
         }
 
-
+        regis_setting_ic = findViewById(R.id.regis_settings_ic)
+        regis_setting_ic.setOnClickListener {
+            val intent = Intent(this, AdminActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
 
     }
 
-    private fun regisFun(){
-
-    }
 
     private fun btnYear() {
         var today: Calendar = Calendar.getInstance()
