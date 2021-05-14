@@ -11,6 +11,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -97,6 +98,7 @@ class CalendarDetailBadActivity : AppCompatActivity() {
         //detail
         txtViewDetail = findViewById(R.id.textView6)
         txtViewDetail.text = detailTxt
+
         //btn savepic
         savePicBtn = findViewById(R.id.buttonBad1)
         savePicBtn.setOnClickListener {
