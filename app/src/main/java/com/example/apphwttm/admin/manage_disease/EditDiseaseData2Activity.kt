@@ -30,11 +30,19 @@ class EditDiseaseData2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_disease_data2)
 
-        var bundle: Bundle? = intent.extras
-        var docId: String = bundle!!.getString("send_to_detail_disease_id").toString()
+        val bundle: Bundle? = intent.extras
+        val docId: String = bundle!!.getString("send_to_detail_disease_id").toString()
+        val itemName: String = bundle!!.getString("send_to_detail_disease_name").toString()
+        val itemDes: String = bundle!!.getString("send_to_detail_disease_des").toString()
+        val itemDes_kid: String = bundle!!.getString("send_to_detail_disease_des_kid").toString()
+        val itemKeyword: String = bundle!!.getString("send_to_detail_disease_keyword").toString()
+        val myItemKeyword: String =
+            itemKeyword.substring(1, itemKeyword.length - 1).filter { !it.isWhitespace() }
+
 
         diseaseName = findViewById(R.id.edit_disease_name)
-        var name = ""
+        diseaseName.editText?.setText(itemName)
+        var name = itemName
         diseaseName.editText?.doOnTextChanged { text, start, before, count ->
             name = text.toString()
         }
@@ -49,33 +57,36 @@ class EditDiseaseData2Activity : AppCompatActivity() {
         }
 
         diseaseKeyword = findViewById(R.id.edit_disease_keyword)
-        var keywordLine = ""
+        diseaseKeyword.editText?.setText(myItemKeyword)
+        var keywordLine = myItemKeyword
         diseaseKeyword.editText?.doOnTextChanged { text, start, before, count ->
             keywordLine = text.toString()
         }
 
         diseaseDes = findViewById(R.id.edit_disease_des)
-        var des = ""
+        diseaseDes.editText?.setText(itemDes)
+        var des = itemDes
         diseaseDes.editText?.doOnTextChanged { text, start, before, count ->
             des = text.toString()
         }
 
         diseaseDesKid = findViewById(R.id.edit_disease_des_kid)
-        var desKid = ""
+        diseaseDesKid.editText?.setText(itemDes_kid)
+        var desKid = itemDes_kid
         diseaseDesKid.editText?.doOnTextChanged { text, start, before, count ->
             desKid = text.toString()
         }
 
         diseaseAddBtn = findViewById(R.id.edit_disease_btn)
         diseaseAddBtn.setOnClickListener {
-            addDataToFireStore(name, tag, keywordLine, des, desKid, docId)
+            updateDataToFireStore(name, tag, keywordLine, des, desKid, docId)
             Toast.makeText(this, "แก้ไขข้อมูลโรคสำเร็จ", Toast.LENGTH_LONG).show()
             finish()
         }
 
     }
 
-    private fun addDataToFireStore(
+    private fun updateDataToFireStore(
         name: String,
         tag: String,
         keyword: String,
@@ -95,6 +106,7 @@ class EditDiseaseData2Activity : AppCompatActivity() {
             "ศีรษะ" -> addTag = listOf("HEAD")
             "ลำตัว" -> addTag = listOf("BODY")
             "ลำตัวส่วนล่าง" -> addTag = listOf("LOWBODY")
+            "" -> addTag = listOf("BODY")
         }
         //check des kid is empty
         if (des_kid == "") {
@@ -108,7 +120,7 @@ class EditDiseaseData2Activity : AppCompatActivity() {
             "tag" to addTag
         )
         firebaseFirestore.collection("testCollection").document(docId)
-            .set(data)
+            .update(data)
             .addOnSuccessListener {
                 Log.d(TAG, "DocumentSnapshot written with ID: $it")
             }

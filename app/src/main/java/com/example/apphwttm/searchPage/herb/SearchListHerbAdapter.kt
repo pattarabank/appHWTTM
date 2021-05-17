@@ -1,13 +1,13 @@
 package com.example.apphwttm.searchPage.herb
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
+import com.example.apphwttm.data_model.HerbSearchModel
 
 class SearchListHerbAdapter(var herbSearchModelList: List<HerbSearchModel>) :
     RecyclerView.Adapter<SearchListHerbAdapter.SearchListHerbViewHolder>() {

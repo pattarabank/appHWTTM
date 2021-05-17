@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
+import com.example.apphwttm.data_model.FirstAidModel
 
 class SearchListFirstAidAdapter(var firstAidModelList: List<FirstAidModel>) :
     RecyclerView.Adapter<SearchListFirstAidAdapter.SearchListFirstAidViewHolder>() {

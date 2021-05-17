@@ -24,7 +24,7 @@ class DeleteFirstAidData2Activity : AppCompatActivity() {
 
         MaterialAlertDialogBuilder(this)
             .setTitle("ลบการปฐมพยาบาลเบื้องต้น")
-            .setMessage("ต้องการลบ $itemName ไหม")
+            .setMessage("ต้องการลบ $itemName หรือไม่")
             .setNeutralButton("ยกเลิก") { dialog, which ->
                 dialog.cancel()
                 finish()

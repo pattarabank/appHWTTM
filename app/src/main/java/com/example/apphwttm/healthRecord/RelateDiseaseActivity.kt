@@ -8,11 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
-import com.example.apphwttm.searchPage.disease.DiseaseSearchModel
+import com.example.apphwttm.data_model.DiseaseSearchModel
 import com.example.apphwttm.searchPage.disease.SearchListDiseaseAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 
 private const val TAG: String = "FIRESTORE_SEARCH_LOG"
 

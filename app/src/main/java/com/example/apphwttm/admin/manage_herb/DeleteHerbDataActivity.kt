@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
-import com.example.apphwttm.searchPage.herb.HerbSearchModel
+import com.example.apphwttm.data_model.HerbSearchModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

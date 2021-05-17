@@ -1,11 +1,11 @@
-package com.example.apphwttm.searchPage.disease
+package com.example.apphwttm.data_model
 
 import com.google.firebase.firestore.DocumentId
 
-data class DiseaseSearchModel(
+data class HerbSearchModel(
     val name: String = "",
     val des: String = "",
-    val des_kid: String = "",
+    val keyword:List<String> = emptyList(),
     @DocumentId
     val documentId: String = ""
 )

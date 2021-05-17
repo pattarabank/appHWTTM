@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
-import com.example.apphwttm.searchPage.firstaid.FirstAidModel
+import com.example.apphwttm.data_model.FirstAidModel
 
 class DeleteFirstAidAdapter(var DeleteFirstAidModelList: List<FirstAidModel>) :
     RecyclerView.Adapter<DeleteFirstAidAdapter.DeleteFirstAidViewHolder>() {

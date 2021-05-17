@@ -24,7 +24,7 @@ class DeleteHerbData2Activity : AppCompatActivity() {
 
         MaterialAlertDialogBuilder(this)
             .setTitle("ลบสมุนไพร")
-            .setMessage("ต้องการลบ $itemName ไหม")
+            .setMessage("ต้องการลบ $itemName หรือไม่")
             .setNeutralButton("ยกเลิก") { dialog, which ->
                 dialog.cancel()
                 finish()

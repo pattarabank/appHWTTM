@@ -15,10 +15,7 @@ import androidx.core.view.isEmpty
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apphwttm.R
-import com.example.apphwttm.calendar.CalendarDetailBadActivity
 import com.example.apphwttm.myDateInTH
-import com.example.apphwttm.searchPage.disease.DiseaseSearchModel
-import com.example.apphwttm.searchPage.disease.SearchListDiseaseAdapter
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
