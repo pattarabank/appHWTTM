@@ -1,6 +1,7 @@
 package com.example.apphwttm.healthRecord
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -18,6 +19,7 @@ class AddRecordDetailActivity : AppCompatActivity() {
 
     private lateinit var addRecordDetailBtn: ExtendedFloatingActionButton
     private lateinit var editTextAddRecordDetail: EditText
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,12 +42,22 @@ class AddRecordDetailActivity : AppCompatActivity() {
         addRecordDetailBtn = findViewById(R.id.AddRecordDetail_btn)
         addRecordDetailBtn.setOnClickListener {
             saveUserTodayDetailData(userInputText)
+            additionalData(userInputText)
             Snackbar.make(it, "บันทึกสำเร็จ", Snackbar.LENGTH_SHORT).show()
 
         }
 
 
     }
+
+    private fun additionalData(str: String) {
+        val addedSharedPreferences = getSharedPreferences("additionalData", Context.MODE_PRIVATE)
+        val addedEdit = addedSharedPreferences.edit()
+        addedEdit.apply {
+            putString("ADDITIONALDATA", str)
+        }.apply()
+    }
+
 
     private fun saveUserTodayDetailData(str: String) {
         val dateKey: String = myDateInTH().myDateTodayInTHfun()
@@ -60,7 +72,6 @@ class AddRecordDetailActivity : AppCompatActivity() {
         var testMydata: String? = dataTodayWithDetail.getString(dateKey, null)
         Log.d("TESTUSERVALUE", testMydata.toString())
     }
-
 
 
 }

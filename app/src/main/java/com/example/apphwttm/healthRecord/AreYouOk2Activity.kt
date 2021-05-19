@@ -20,7 +20,7 @@ class AreYouOk2Activity : AppCompatActivity() {
     private lateinit var areYouOk2Date: TextView
     private lateinit var areYouOk2Btn1: ExtendedFloatingActionButton
     private lateinit var areYouOk2Btn2: ExtendedFloatingActionButton
-    private lateinit var checkBtn : TextView
+    private lateinit var checkBtn: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +53,7 @@ class AreYouOk2Activity : AppCompatActivity() {
             //val sendDataToRelate: ArrayList<String> =
             //    intent.getSerializableExtra("are_you_ok_data") as ArrayList<String>
             val intent = Intent(this, RelateDiseaseActivity::class.java)
-            intent.putExtra("SEND_DATA_TO_RELATE",dataList)
+            intent.putExtra("SEND_DATA_TO_RELATE", dataList)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
@@ -68,22 +68,32 @@ class AreYouOk2Activity : AppCompatActivity() {
         checkBtn = findViewById(R.id.check_icon)
         checkBtn.setOnClickListener {
             val toDayKey: String = myDateInTH().myDateTodayInTHfun()
-            val userHealthCareLimitPerDay = getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
+            val userHealthCareLimitPerDay =
+                getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
             val isOk = userHealthCareLimitPerDay.getString(toDayKey, null)
-            if (isOk == null){
-                val userHealthCareLimitPerDay = getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
+            if (isOk == null) {
+                val userHealthCareLimitPerDay =
+                    getSharedPreferences("userLimitPerDay", Context.MODE_PRIVATE)
                 val editLimit = userHealthCareLimitPerDay.edit()
-                editLimit.apply{
-                    putString(toDayKey,"full")
+                editLimit.apply {
+                    putString(toDayKey, "full")
                 }.apply()
                 //Snackbar.make(it,"บันทึกข้อมูลสุขภาพวันนี้สำเร็จ",Snackbar.LENGTH_SHORT).show()
-                Toast.makeText(this,"บันทึกข้อมูลสุขภาพวันนี้สำเร็จ",Toast.LENGTH_LONG).show()
-                val intent = Intent(this,HealthCareActivity::class.java)
+                Toast.makeText(this, "บันทึกข้อมูลสุขภาพวันนี้สำเร็จ", Toast.LENGTH_LONG).show()
+
+                val addedSharedPreferences =
+                    getSharedPreferences("additionalData", Context.MODE_PRIVATE)
+                val resetData = addedSharedPreferences.edit()
+                resetData.apply {
+                    putString("ADDITIONALDATA", "")
+                }.apply()
+
+                val intent = Intent(this, HealthCareActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
                 finish()
-            }else{
-                Snackbar.make(it,"วันนี้บันทึกไปแล้ว",Snackbar.LENGTH_SHORT).show()
+            } else {
+                Snackbar.make(it, "วันนี้บันทึกไปแล้ว", Snackbar.LENGTH_SHORT).show()
             }
 
         }

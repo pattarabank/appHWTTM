@@ -78,4 +78,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/my_test_txt_response"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRelate2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
