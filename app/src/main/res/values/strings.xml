@@ -101,5 +101,17 @@
     <string name="วันที่คุณเลือก">วันที่คุณเลือก :</string>
     <string name="มีข้อมูล">มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง</string>
 
+    <string name="adminAddDi">เพิ่มโรค</string>
+    <string name="adminAddFA">เพิ่มการปฐมพยาบาล</string>
+    <string name="adminAddHb">เพิ่มสมุนไพร</string>
+
+    <string name="adminEditDi">แก้ไขโรค</string>
+    <string name="adminEditFA">แก้ไขการปฐมพยาบาล</string>
+    <string name="adminEditHb">แก้ไขสมุนไพร</string>
+
+    <string name="adminDeleteDi">ลบโรค</string>
+    <string name="adminDeleteFA">ลบการปฐมพยาบาล</string>
+    <string name="adminDeleteHb">ลบสมุนไพร</string>
+    <string name="edit_disease_data">แก้ไขโรคในฐานข้อมูล</string>
 
 </resources>

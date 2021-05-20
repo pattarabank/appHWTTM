@@ -84,6 +84,7 @@ class RelateDiseaseActivity : AppCompatActivity() {
                 runOnUiThread(object : Runnable {
                     override fun run() {
                         Log.d("TESTOKHTTP", "Can't Connect")
+                        searchInFirestore(relateList)
                     }
                 })
             }

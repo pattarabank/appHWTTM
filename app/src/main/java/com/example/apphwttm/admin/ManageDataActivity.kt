@@ -30,8 +30,11 @@ class ManageDataActivity : AppCompatActivity() {
 
         toolbar = findViewById(R.id.data_toolbar)
         addHerbBtn = findViewById(R.id.add_herb)
+        addHerbBtn.setText(R.string.adminAddHb)
         addfirstAidBtn = findViewById(R.id.add_firstaid)
+        addfirstAidBtn.setText(R.string.adminAddFA)
         addDiseaseBtn = findViewById(R.id.add_disease)
+        addDiseaseBtn.setText(R.string.adminAddDi)
 
         addHerbBtn.setOnClickListener {
             val intent = Intent(this, AddHerbDataActivity::class.java)
@@ -54,9 +57,9 @@ class ManageDataActivity : AppCompatActivity() {
         toolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.memu_data_1 -> {
-                    addDiseaseBtn.text = "add Disease Data"
-                    addHerbBtn.text = "add Herb Data"
-                    addfirstAidBtn.text = "add First Aid Data"
+                    addDiseaseBtn.setText(R.string.adminAddDi)
+                    addHerbBtn.setText(R.string.adminAddHb)
+                    addfirstAidBtn.setText(R.string.adminAddFA)
                     addHerbBtn.setOnClickListener {
                         val intent = Intent(this, AddHerbDataActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
@@ -77,9 +80,9 @@ class ManageDataActivity : AppCompatActivity() {
                     true
                 }
                 R.id.memu_data_2 -> {
-                    addDiseaseBtn.text = "edit Disease Data"
-                    addHerbBtn.text = "edit Herb Data"
-                    addfirstAidBtn.text = "edit First Aid Data"
+                    addDiseaseBtn.setText(R.string.adminEditDi)
+                    addHerbBtn.setText(R.string.adminEditHb)
+                    addfirstAidBtn.setText(R.string.adminEditFA)
                     addHerbBtn.setOnClickListener {
                         val intent = Intent(this, EditHerbDataActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
@@ -100,9 +103,9 @@ class ManageDataActivity : AppCompatActivity() {
                     true
                 }
                 R.id.memu_data_3 -> {
-                    addDiseaseBtn.text = "delete Disease Data"
-                    addHerbBtn.text = "delete Herb Data"
-                    addfirstAidBtn.text = "delete First Aid Data"
+                    addDiseaseBtn.setText(R.string.adminDeleteDi)
+                    addHerbBtn.setText(R.string.adminDeleteHb)
+                    addfirstAidBtn.setText(R.string.adminDeleteFA)
                     addHerbBtn.setOnClickListener {
                         val intent = Intent(this, DeleteHerbDataActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)

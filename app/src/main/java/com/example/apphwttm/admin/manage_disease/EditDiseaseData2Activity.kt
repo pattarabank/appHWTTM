@@ -1,5 +1,6 @@
 package com.example.apphwttm.admin.manage_disease
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.example.apphwttm.R
+import com.example.apphwttm.admin.ManageDataActivity
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -82,6 +84,9 @@ class EditDiseaseData2Activity : AppCompatActivity() {
             updateDataToFireStore(name, tag, keywordLine, des, desKid, docId)
             Toast.makeText(this, "แก้ไขข้อมูลโรคสำเร็จ", Toast.LENGTH_LONG).show()
             finish()
+            val intent = Intent(this, ManageDataActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
         }
 
     }
