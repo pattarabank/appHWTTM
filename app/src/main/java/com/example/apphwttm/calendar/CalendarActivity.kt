@@ -58,7 +58,7 @@ class CalendarActivity : AppCompatActivity() {
                 calendarBtn.isEnabled = true
                 txtViewColor.setBackgroundResource(R.drawable.red)
                 calendarIcStatus.setBackgroundResource(R.drawable.sad)
-                txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
+                txtViewColor.text = "มีข้อมูล สามารถกดดูข้อมูลได้ที่ปุ่มด้านล่าง"
             }
         }
 
@@ -104,7 +104,7 @@ class CalendarActivity : AppCompatActivity() {
                     calendarBtn.isEnabled = true
                     txtViewColor.setBackgroundResource(R.drawable.red)
                     calendarIcStatus.setBackgroundResource(R.drawable.sad)
-                    txtViewColor.text = "มีข้อมูล สามากดดูข้อมูลได้ที่ปุ่มด้านล่าง"
+                    txtViewColor.text = "มีข้อมูล สามารถกดดูข้อมูลได้ที่ปุ่มด้านล่าง"
                 }
             }
             calendarBtn.setOnClickListener {
