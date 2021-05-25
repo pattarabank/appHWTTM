@@ -8,6 +8,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
+import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import com.example.apphwttm.R
 import com.example.apphwttm.myDateInTH
@@ -19,11 +20,18 @@ class AddRecordDetailActivity : AppCompatActivity() {
 
     private lateinit var addRecordDetailBtn: ExtendedFloatingActionButton
     private lateinit var editTextAddRecordDetail: EditText
+    private lateinit var addRecordBackBtn: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_record_detail)
+
+        //set back btn
+        addRecordBackBtn = findViewById(R.id.myPreviousIconAddRecordDetail)
+        addRecordBackBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         var userInputText: String = ""
         editTextAddRecordDetail = findViewById(R.id.editTextTextMultiLine2)

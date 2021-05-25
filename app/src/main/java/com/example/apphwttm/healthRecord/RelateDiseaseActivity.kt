@@ -28,12 +28,19 @@ class RelateDiseaseActivity : AppCompatActivity() {
     private var searchListDiseaseRelateAdapter = SearchListDiseaseAdapter(searchListDiseaseRelate)
 
     private lateinit var txtViewBottom: TextView
-    //private lateinit var txtViewTestResponse: TextView
 
+    //private lateinit var txtViewTestResponse: TextView
+    private lateinit var txtViewRelateBackBtn: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_relate_disease)
+
+        //set back btn
+        txtViewRelateBackBtn = findViewById(R.id.myPreviousIconRelateDisease)
+        txtViewRelateBackBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         val relateData: ArrayList<String> =
             intent.getSerializableExtra("SEND_DATA_TO_RELATE") as ArrayList<String>

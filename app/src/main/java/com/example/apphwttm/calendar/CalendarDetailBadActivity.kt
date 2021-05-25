@@ -33,6 +33,8 @@ class CalendarDetailBadActivity : AppCompatActivity() {
     private lateinit var savePicBtn: Button
     private lateinit var shareBtn: Button
 
+    private lateinit var calDetailBadBackBtn: TextView
+
     var MY_PERMISSIONS_REQUEST_READ_CONTACTS = 21
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +42,12 @@ class CalendarDetailBadActivity : AppCompatActivity() {
         setContentView(R.layout.activity_calendar_detail_bad)
 
         requestPermission()
+
+        //set back btn
+        calDetailBadBackBtn = findViewById(R.id.myPreviousIconCalendarBad)
+        calDetailBadBackBtn.setOnClickListener {
+            onBackPressed()
+        }
 
         val key: String? = intent.getStringExtra("key_to_bad")
         val setDate: String? = intent.getStringExtra("date_to_bad")

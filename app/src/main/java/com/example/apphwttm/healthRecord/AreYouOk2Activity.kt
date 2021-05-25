@@ -21,10 +21,18 @@ class AreYouOk2Activity : AppCompatActivity() {
     private lateinit var areYouOk2Btn1: ExtendedFloatingActionButton
     private lateinit var areYouOk2Btn2: ExtendedFloatingActionButton
     private lateinit var checkBtn: TextView
+    private lateinit var areYouOk2BackBtn: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_are_you_ok2)
+
+        //set back btn
+        areYouOk2BackBtn = findViewById(R.id.myPreviousIconAreyouok2)
+        areYouOk2BackBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         setAreYouOk2Date()
         //รับโรคจาก chip มาแสดง
         val arrayAdapter: ArrayAdapter<*>

@@ -1,10 +1,12 @@
 package com.example.apphwttm.searchPage.disease
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.apphwttm.R
+import com.example.apphwttm.searchPage.head.DiseaseHeadActivity
 import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout
 
@@ -14,6 +16,8 @@ class NewDetailDiseaseSearchActivity : AppCompatActivity() {
 
     private lateinit var textView1: TextView
     private lateinit var testTextView: TextView
+
+    private lateinit var textViewBackBtn: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +85,17 @@ class NewDetailDiseaseSearchActivity : AppCompatActivity() {
                 override fun onTabReselected(tab: TabLayout.Tab?) {}
             })
         }
+
+        // back btn
+        textViewBackBtn = findViewById(R.id.myPreviousIconNewDisease)
+        textViewBackBtn.setOnClickListener {
+//            val intent = Intent(this, DiseaseHeadActivity::class.java)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+//            startActivity(intent)
+            onBackPressed()
+            finish()
+        }
+
     }
 }
 

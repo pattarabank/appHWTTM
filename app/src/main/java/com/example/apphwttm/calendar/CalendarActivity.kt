@@ -19,10 +19,18 @@ class CalendarActivity : AppCompatActivity() {
     private lateinit var calendarBtn: Button
     private lateinit var txtViewColor: TextView
     private lateinit var calendarIcStatus: TextView
+    private lateinit var calendarBackBtn: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
+
+        //set back btn
+        calendarBackBtn = findViewById(R.id.myPreviousIconCalendar)
+        calendarBackBtn.setOnClickListener {
+            onBackPressed()
+        }
+
         //Log.d("TESTSET",myDateInTH().calendarDateInTH())
         //var testTextCalendar: String = ""
         calendarDateTxt = findViewById(R.id.textViewCalendar1)
@@ -70,7 +78,7 @@ class CalendarActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this, CalendarDetailBadActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                intent.putExtra("date_to_bad",key)
+                intent.putExtra("date_to_bad", key)
                 intent.putExtra("key_to_bad", keySend)
                 startActivity(intent)
             }
