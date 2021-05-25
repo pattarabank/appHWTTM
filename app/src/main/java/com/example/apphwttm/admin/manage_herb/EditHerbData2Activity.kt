@@ -91,7 +91,7 @@ class EditHerbData2Activity : AppCompatActivity() {
             "des" to addDes,
             "keyword" to addKeyword
         )
-        firebaseFirestore.collection("testCollection").document(docId)
+        firebaseFirestore.collection("herb").document(docId)
             .update(data)
             .addOnSuccessListener {
                 Log.d(TAG, "DocumentSnapshot written with ID: $it")

@@ -38,7 +38,7 @@ class EditHerbDataActivity : AppCompatActivity() {
 
 
     private fun startFirestore() {
-        firebaseFirestore.collection("testCollection")
+        firebaseFirestore.collection("herb")
             //.whereArrayContains("search_keywords",searchText)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {

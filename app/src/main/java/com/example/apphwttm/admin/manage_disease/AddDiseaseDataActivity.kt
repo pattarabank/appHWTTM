@@ -105,7 +105,8 @@ class AddDiseaseDataActivity : AppCompatActivity() {
             "keyword" to addKeyword,
             "tag" to addTag
         )
-        firebaseFirestore.collection("testCollection")
+        //firebaseFirestore.collection("testCollection")
+        firebaseFirestore.collection(" symptom")
             .add(data)
             .addOnSuccessListener {
                 Log.d(TAG, "DocumentSnapshot written with ID: ${it.id}")

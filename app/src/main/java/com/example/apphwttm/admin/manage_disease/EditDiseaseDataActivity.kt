@@ -36,7 +36,7 @@ class EditDiseaseDataActivity : AppCompatActivity() {
     }
 
     private fun startFirestore() {
-        firebaseFirestore.collection("testCollection")
+        firebaseFirestore.collection(" symptom")
             //.whereArrayContains("search_keywords",searchText)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {

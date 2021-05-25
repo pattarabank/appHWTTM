@@ -36,7 +36,7 @@ class DeleteFirstAidDataActivity : AppCompatActivity() {
     }
 
     private fun startFirestore() {
-        firebaseFirestore.collection("testCollection")
+        firebaseFirestore.collection("first aid")
             //.whereArrayContains("search_keywords",searchText)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {

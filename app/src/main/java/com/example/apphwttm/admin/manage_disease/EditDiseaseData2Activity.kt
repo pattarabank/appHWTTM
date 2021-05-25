@@ -124,7 +124,7 @@ class EditDiseaseData2Activity : AppCompatActivity() {
             "keyword" to addKeyword,
             "tag" to addTag
         )
-        firebaseFirestore.collection("testCollection").document(docId)
+        firebaseFirestore.collection(" symptom").document(docId)
             .update(data)
             .addOnSuccessListener {
                 Log.d(TAG, "DocumentSnapshot written with ID: $it")

@@ -65,7 +65,7 @@ class AddHerbDataActivity : AppCompatActivity() {
             "des" to addDes,
             "keyword" to addKeyword
         )
-        firebaseFirestore.collection("testCollection")
+        firebaseFirestore.collection("herb")
             .add(data)
             .addOnSuccessListener {
                 Log.d(TAG, "DocumentSnapshot written with ID: ${it.id}")

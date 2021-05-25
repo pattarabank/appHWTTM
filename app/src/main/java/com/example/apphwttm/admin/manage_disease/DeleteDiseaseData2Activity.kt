@@ -39,7 +39,7 @@ class DeleteDiseaseData2Activity : AppCompatActivity() {
     }
 
     private fun deleteDataInFireStore(docId: String) {
-        firebaseFirestore.collection("testCollection").document(docId)
+        firebaseFirestore.collection(" symptom").document(docId)
             .delete()
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
