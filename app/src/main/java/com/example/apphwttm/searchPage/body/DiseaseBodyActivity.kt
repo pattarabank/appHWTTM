@@ -13,6 +13,7 @@ import com.example.apphwttm.data_model.DiseaseSearchModel
 import com.example.apphwttm.searchPage.disease.NewSearchListDiseaseAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 private const val TAG: String = "FIRESTORE_SEARCH_LOG"
 
@@ -45,7 +46,7 @@ class DiseaseBodyActivity : AppCompatActivity() {
     }
 
     private fun searchInFirestore() {
-        firebaseFirestore.collection(" symptom")
+        firebaseFirestore.collection(" symptom").orderBy("name", Query.Direction.ASCENDING)
             .whereArrayContains("tag", "BODY")
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -61,6 +62,7 @@ class DiseaseBodyActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        searchInFirestore()
         if (firebaseAuth.currentUser == null) {
             firebaseAuth.signInAnonymously().addOnCompleteListener() {
                 if (!it.isSuccessful) {

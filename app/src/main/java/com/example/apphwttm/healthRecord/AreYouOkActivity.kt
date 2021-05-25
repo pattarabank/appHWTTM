@@ -22,6 +22,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 private const val TAG: String = "FIRESTORE_SEARCH_LOG"
 
@@ -141,7 +142,7 @@ class AreYouOkActivity : AppCompatActivity(), OnItemClickListener {
     }
 
     private fun startFirestore() {
-        firebaseFirestore.collection(" symptom")
+        firebaseFirestore.collection(" symptom").orderBy("name", Query.Direction.ASCENDING)
             //.whereArrayContains("search_keywords",searchText)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {

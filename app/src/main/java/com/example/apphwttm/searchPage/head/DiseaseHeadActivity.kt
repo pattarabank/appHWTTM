@@ -13,6 +13,7 @@ import com.example.apphwttm.data_model.DiseaseSearchModel
 import com.example.apphwttm.searchPage.disease.NewSearchListDiseaseAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 private const val TAG: String = "FIRESTORE_SEARCH_LOG"
 
@@ -21,10 +22,10 @@ class DiseaseHeadActivity : AppCompatActivity() {
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
     private val firebaseFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    private var searchListDiseaseHead : List<DiseaseSearchModel> = ArrayList()
+    private var searchListDiseaseHead: List<DiseaseSearchModel> = ArrayList()
     private var searchListDiseaseHeadAdapter = NewSearchListDiseaseAdapter(searchListDiseaseHead)
 
-    private lateinit var diseaseHeadBackBtn : TextView
+    private lateinit var diseaseHeadBackBtn: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +48,7 @@ class DiseaseHeadActivity : AppCompatActivity() {
 
     private fun searchInFirestore() {
         firebaseFirestore.collection(" symptom")
-            .whereArrayContains("tag", "HEAD")
+            .whereArrayContains("tag", "HEAD").orderBy("name", Query.Direction.ASCENDING)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     searchListDiseaseHead = it.result!!.toObjects(DiseaseSearchModel::class.java)
@@ -62,6 +63,7 @@ class DiseaseHeadActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        searchInFirestore()
         if (firebaseAuth.currentUser == null) {
             firebaseAuth.signInAnonymously().addOnCompleteListener() {
                 if (!it.isSuccessful) {

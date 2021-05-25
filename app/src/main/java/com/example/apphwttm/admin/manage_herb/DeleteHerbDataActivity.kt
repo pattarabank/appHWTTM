@@ -9,6 +9,7 @@ import com.example.apphwttm.R
 import com.example.apphwttm.data_model.HerbSearchModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 private const val TAG: String = "FIRESTORE_SEARCH_LOG"
 
@@ -35,7 +36,7 @@ class DeleteHerbDataActivity : AppCompatActivity() {
     }
 
     private fun startFirestore() {
-        firebaseFirestore.collection("herb")
+        firebaseFirestore.collection("herb").orderBy("name", Query.Direction.ASCENDING)
             //.whereArrayContains("search_keywords",searchText)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
