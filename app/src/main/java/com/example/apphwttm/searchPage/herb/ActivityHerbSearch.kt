@@ -55,6 +55,7 @@ class ActivityHerbSearch : AppCompatActivity() {
                     findViewById<EditText>(R.id.search_field_Herb).text.toString()
                 searchInFirestore(searchText.toLowerCase())
             }
+
             override fun afterTextChanged(s: Editable?) {
                 val searchText: String =
                     findViewById<EditText>(R.id.search_field_Herb).text.toString()
@@ -97,6 +98,7 @@ class ActivityHerbSearch : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        startFirestore()
         if (firebaseAuth.currentUser == null) {
             firebaseAuth.signInAnonymously().addOnCompleteListener() {
                 if (!it.isSuccessful) {

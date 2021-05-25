@@ -99,6 +99,7 @@ class SecActivityDiseaseSearch : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        startFirestore()
         if (firebaseAuth.currentUser == null) {
             firebaseAuth.signInAnonymously().addOnCompleteListener() {
                 if (!it.isSuccessful) {
