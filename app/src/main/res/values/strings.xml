@@ -114,4 +114,6 @@
     <string name="adminDeleteHb">ลบสมุนไพร</string>
     <string name="edit_disease_data">แก้ไขโรคในฐานข้อมูล</string>
 
+    <string name="add_disease_with">โรคที่มีอาการเกี่ยวข้อง</string>
+
 </resources>

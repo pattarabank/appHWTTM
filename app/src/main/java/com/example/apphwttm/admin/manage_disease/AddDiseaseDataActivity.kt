@@ -24,6 +24,7 @@ class AddDiseaseDataActivity : AppCompatActivity() {
     private lateinit var diseaseKeyword: TextInputLayout
     private lateinit var diseaseDes: TextInputLayout
     private lateinit var diseaseDesKid: TextInputLayout
+    private lateinit var diseaseWith: TextInputLayout
     private lateinit var diseaseAddBtn: Button
 
 
@@ -64,9 +65,15 @@ class AddDiseaseDataActivity : AppCompatActivity() {
             desKid = text.toString()
         }
 
+        diseaseWith = findViewById(R.id.add_disease_with)
+        var with = ""
+        diseaseWith.editText?.doOnTextChanged { text, start, before, count ->
+            with = text.toString()
+        }
+
         diseaseAddBtn = findViewById(R.id.add_disease_btn)
         diseaseAddBtn.setOnClickListener {
-            addDataToFireStore(name,tag, keywordLine, des,desKid)
+            addDataToFireStore(name, tag, keywordLine, des, desKid, with)
             Toast.makeText(this, "เพิ่มข้อมูลโรคใหม่สำเร็จ", Toast.LENGTH_LONG).show()
             finish()
         }
@@ -79,12 +86,17 @@ class AddDiseaseDataActivity : AppCompatActivity() {
         tag: String,
         keyword: String,
         des: String,
-        des_kid: String
+        des_kid: String,
+        with: String
     ) {
         var addName = name
         var addKeyword = keyword.trim().split(",")
         var addDes = des
         var addDesKid = des_kid
+        var addWith = listOf<String>("")
+        if (with != "") {
+            addWith = with.split(",")
+        }
         //gen name to keyword
         addKeyword = addKeyword + genKeyword(name)
         //get tag
@@ -95,7 +107,7 @@ class AddDiseaseDataActivity : AppCompatActivity() {
             "ลำตัวส่วนล่าง" -> addTag = listOf("LOWBODY")
         }
         //check des kid is empty
-        if (des_kid == ""){
+        if (des_kid == "") {
             addDesKid = des
         }
         val data = hashMapOf(
@@ -103,7 +115,8 @@ class AddDiseaseDataActivity : AppCompatActivity() {
             "des" to addDes,
             "des_kid" to addDesKid,
             "keyword" to addKeyword,
-            "tag" to addTag
+            "tag" to addTag,
+            "with" to addWith
         )
         //firebaseFirestore.collection("testCollection")
         firebaseFirestore.collection(" symptom")

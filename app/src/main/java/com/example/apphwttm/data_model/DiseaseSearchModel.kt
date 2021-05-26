@@ -6,7 +6,8 @@ data class DiseaseSearchModel(
     val name: String = "",
     val des: String = "",
     val des_kid: String = "",
-    val keyword:List<String> = emptyList(),
+    val keyword: List<String> = emptyList(),
+    val with: List<String> = emptyList(),
     @DocumentId
     val documentId: String = ""
 )

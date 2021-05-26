@@ -26,6 +26,7 @@ class EditDiseaseData2Activity : AppCompatActivity() {
     private lateinit var diseaseKeyword: TextInputLayout
     private lateinit var diseaseDes: TextInputLayout
     private lateinit var diseaseDesKid: TextInputLayout
+    private lateinit var diseaseWith: TextInputLayout
     private lateinit var diseaseAddBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,8 +39,14 @@ class EditDiseaseData2Activity : AppCompatActivity() {
         val itemDes: String = bundle!!.getString("send_to_detail_disease_des").toString()
         val itemDes_kid: String = bundle!!.getString("send_to_detail_disease_des_kid").toString()
         val itemKeyword: String = bundle!!.getString("send_to_detail_disease_keyword").toString()
+        val itemWith: String = bundle!!.getString("send_to_detail_disease_with").toString()
         val myItemKeyword: String =
             itemKeyword.substring(1, itemKeyword.length - 1).filter { !it.isWhitespace() }
+
+        val myItemWith: String =
+            itemWith.substring(1, itemWith.length - 1).filter { !it.isWhitespace() }
+
+
 
 
         diseaseName = findViewById(R.id.edit_disease_name)
@@ -79,9 +86,16 @@ class EditDiseaseData2Activity : AppCompatActivity() {
             desKid = text.toString()
         }
 
+        diseaseWith = findViewById(R.id.edit_disease_with)
+        diseaseWith.editText?.setText(myItemWith)
+        var with = myItemWith
+        diseaseWith.editText?.doOnTextChanged { text, start, before, count ->
+            with = text.toString()
+        }
+
         diseaseAddBtn = findViewById(R.id.edit_disease_btn)
         diseaseAddBtn.setOnClickListener {
-            updateDataToFireStore(name, tag, keywordLine, des, desKid, docId)
+            updateDataToFireStore(name, tag, keywordLine, des, desKid, docId, with)
             Toast.makeText(this, "แก้ไขข้อมูลโรคสำเร็จ", Toast.LENGTH_LONG).show()
             finish()
             val intent = Intent(this, ManageDataActivity::class.java)
@@ -97,12 +111,17 @@ class EditDiseaseData2Activity : AppCompatActivity() {
         keyword: String,
         des: String,
         des_kid: String,
-        docId: String
+        docId: String,
+        with: String
     ) {
         var addName = name
         var addKeyword = keyword.trim().split(",")
         var addDes = des
         var addDesKid = des_kid
+        var addWith = listOf<String>("")
+        if (with != "") {
+            addWith = with.split(",")
+        }
         //gen name to keyword
         addKeyword = addKeyword + genKeyword(name)
         //get tag
@@ -122,9 +141,11 @@ class EditDiseaseData2Activity : AppCompatActivity() {
             "des" to addDes,
             "des_kid" to addDesKid,
             "keyword" to addKeyword,
-            "tag" to addTag
+            "tag" to addTag,
+            "with" to addWith
         )
         firebaseFirestore.collection(" symptom").document(docId)
+            //firebaseFirestore.collection("testCollection").document(docId)
             .update(data)
             .addOnSuccessListener {
                 Log.d(TAG, "DocumentSnapshot written with ID: $it")

@@ -16,6 +16,7 @@ class ManageDataDiseaseAdapter(var ManageDiseaseMedelList: List<DiseaseSearchMod
         private var itemDes = ""
         private var itemDes_kid = ""
         private var itemKeyword: List<String> = emptyList()
+        private var itemWith: List<String> = emptyList()
         private var docId = ""
         fun bind(diseaseSearchModel: DiseaseSearchModel) {
             itemView.findViewById<TextView>(R.id.disease_tv_1).text = diseaseSearchModel.name
@@ -23,6 +24,7 @@ class ManageDataDiseaseAdapter(var ManageDiseaseMedelList: List<DiseaseSearchMod
             itemDes = diseaseSearchModel.des
             itemDes_kid = diseaseSearchModel.des_kid
             itemKeyword = diseaseSearchModel.keyword
+            itemWith = diseaseSearchModel.with
             docId = diseaseSearchModel.documentId
         }
 
@@ -33,6 +35,7 @@ class ManageDataDiseaseAdapter(var ManageDiseaseMedelList: List<DiseaseSearchMod
                 intent.putExtra("send_to_detail_disease_des", itemDes)
                 intent.putExtra("send_to_detail_disease_des_kid", itemDes_kid)
                 intent.putExtra("send_to_detail_disease_keyword", itemKeyword.toString().trim())
+                intent.putExtra("send_to_detail_disease_with", itemWith.toString().trim())
                 intent.putExtra("send_to_detail_disease_id", docId)
                 itemView.context.startActivity(intent)
             }

@@ -64,7 +64,7 @@ class RelateDiseaseActivity : AppCompatActivity() {
         searchListDiseaseRelate.hasFixedSize()
         searchListDiseaseRelate.layoutManager = LinearLayoutManager(this)
         searchListDiseaseRelate.adapter = searchListDiseaseRelateAdapter
-        //searchInFirestore(relateList)
+        searchInFirestore(relateList)
 
         //set text
         txtViewBottom = findViewById(R.id.textViewRelate2)
@@ -77,55 +77,106 @@ class RelateDiseaseActivity : AppCompatActivity() {
         }
         ///////////////////
 
-
-        val client = OkHttpClient()
-        val formBody = FormBody.Builder()
-            .add("value", addedData)
-            .build()
-        val request = Request.Builder()
-            .url("http://192.168.1.34:5000/post")
-            .post(formBody)
-            .build()
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                runOnUiThread(object : Runnable {
-                    override fun run() {
-                        Log.d("TESTOKHTTP", relateList.toString() + "Can't Connect")
-                        searchInFirestore(relateList)
-                    }
-                })
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                if (!response.isSuccessful) throw IOException("Unexpected code $response")
-                runOnUiThread(object : Runnable {
-                    override fun run() {
-                        //txtViewTestResponse.text = response.body!!.string()
-                        val myLine =
-                            response.body!!.string().filter { !it.isWhitespace() }.split(",")
-                        //Log.d("TESTOKHTTP", newListData.toString() + "EMPTY")
-                        if (myLine.toString() == "[]") {
-                            Log.d("TESTOKHTTP", myLine.toString() + "EMPTY")
-                            Log.d("TESTOKHTTP", relateList.toString() + "EMPTY")
+        try {
+            val client = OkHttpClient()
+            val formBody = FormBody.Builder()
+                .add("value", addedData)
+                .build()
+            val request = Request.Builder()
+                .url("http://192.168.1.34:5000/post")
+                .post(formBody)
+                .build()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    runOnUiThread(object : Runnable {
+                        override fun run() {
+                            Log.d("TESTOKHTTP", relateList.toString() + "Can't Connect")
                             searchInFirestore(relateList)
-                        } else {
-                            var newListData: MutableList<String> = ArrayList()
-                            myLine.forEach {
-                                //Log.d("TESTOKHTTP", it.substring(1, it.length - 1) + "")
-                                newListData.add(it.substring(1, it.length - 1))
+                        }
+                    })
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    if (!response.isSuccessful) throw IOException("Unexpected code $response")
+                    runOnUiThread(object : Runnable {
+                        override fun run() {
+                            //txtViewTestResponse.text = response.body!!.string()
+                            val myLine =
+                                response.body!!.string().filter { !it.isWhitespace() }.split(",")
+                            //Log.d("TESTOKHTTP", newListData.toString() + "EMPTY")
+                            if (myLine.toString() == "[]") {
+                                Log.d("TESTOKHTTP", myLine.toString() + "EMPTY")
+                                Log.d("TESTOKHTTP", relateList.toString() + "EMPTY")
+                                searchInFirestore(relateList)
+                            } else {
+                                var newListData: MutableList<String> = ArrayList()
+                                myLine.forEach {
+                                    //Log.d("TESTOKHTTP", it.substring(1, it.length - 1) + "")
+                                    newListData.add(it.substring(1, it.length - 1))
+                                }
+                                Log.d("TESTOKHTTP", (relateList + newListData).toString())
+                                searchInFirestore(relateList + newListData)
                             }
-                            Log.d("TESTOKHTTP", (relateList + newListData).toString())
-                            searchInFirestore(relateList + newListData)
+
                         }
 
-                    }
-
-                })
+                    })
 
 
-            }
+                }
 
-        })
+            })
+        }catch (e:Exception){
+            searchInFirestore(relateList)
+        }
+//        val client = OkHttpClient()
+//        val formBody = FormBody.Builder()
+//            .add("value", addedData)
+//            .build()
+//        val request = Request.Builder()
+//            .url("http://192.168.1.34:5000/post")
+//            .post(formBody)
+//            .build()
+//        client.newCall(request).enqueue(object : Callback {
+//            override fun onFailure(call: Call, e: IOException) {
+//                runOnUiThread(object : Runnable {
+//                    override fun run() {
+//                        Log.d("TESTOKHTTP", relateList.toString() + "Can't Connect")
+//                        searchInFirestore(relateList)
+//                    }
+//                })
+//            }
+//
+//            override fun onResponse(call: Call, response: Response) {
+//                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+//                runOnUiThread(object : Runnable {
+//                    override fun run() {
+//                        //txtViewTestResponse.text = response.body!!.string()
+//                        val myLine =
+//                            response.body!!.string().filter { !it.isWhitespace() }.split(",")
+//                        //Log.d("TESTOKHTTP", newListData.toString() + "EMPTY")
+//                        if (myLine.toString() == "[]") {
+//                            Log.d("TESTOKHTTP", myLine.toString() + "EMPTY")
+//                            Log.d("TESTOKHTTP", relateList.toString() + "EMPTY")
+//                            searchInFirestore(relateList)
+//                        } else {
+//                            var newListData: MutableList<String> = ArrayList()
+//                            myLine.forEach {
+//                                //Log.d("TESTOKHTTP", it.substring(1, it.length - 1) + "")
+//                                newListData.add(it.substring(1, it.length - 1))
+//                            }
+//                            Log.d("TESTOKHTTP", (relateList + newListData).toString())
+//                            searchInFirestore(relateList + newListData)
+//                        }
+//
+//                    }
+//
+//                })
+//
+//
+//            }
+//
+//        })
 
 
 //        val resetData = addedSharedPreferences.edit()
