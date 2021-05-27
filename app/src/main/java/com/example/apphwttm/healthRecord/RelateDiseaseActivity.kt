@@ -115,7 +115,12 @@ class RelateDiseaseActivity : AppCompatActivity() {
                                     newListData.add(it.substring(1, it.length - 1))
                                 }
                                 Log.d("TESTOKHTTP", (relateList + newListData).toString())
-                                searchInFirestore(relateList + newListData)
+                                if (relateList.size + newListData.size <= 10) {
+                                    searchInFirestore(relateList + newListData)
+                                } else {
+                                    searchInFirestore(relateList)
+                                }
+
                             }
 
                         }
@@ -126,7 +131,7 @@ class RelateDiseaseActivity : AppCompatActivity() {
                 }
 
             })
-        }catch (e:Exception){
+        } catch (e: Exception) {
             searchInFirestore(relateList)
         }
 //        val client = OkHttpClient()
