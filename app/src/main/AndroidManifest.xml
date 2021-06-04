@@ -5,14 +5,15 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppHWTTM">
-        <activity android:name=".admin.manage_disease.DeleteDiseaseData2Activity"></activity>
+        android:theme="@style/Theme.AppHWTTM"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".searchPage.relate_herb.RelateHerbActivity"></activity>
+        <activity android:name=".admin.manage_disease.DeleteDiseaseData2Activity" />
         <activity android:name=".admin.manage_firstAid.DeleteFirstAidData2Activity" />
         <activity android:name=".admin.manage_herb.DeleteHerbData2Activity" />
         <activity android:name=".admin.manage_disease.EditDiseaseData2Activity" />

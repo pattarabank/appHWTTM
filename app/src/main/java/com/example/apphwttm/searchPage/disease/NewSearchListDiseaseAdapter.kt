@@ -35,11 +35,14 @@ class NewSearchListDiseaseAdapter(var diseaseSearchModelList: List<DiseaseSearch
         private var itemDescription = ""
         private var itemDescriptionKid = ""
         private var itemName = ""
+        private var itemId = ""
         fun bind(diseaseSearchModel: DiseaseSearchModel) {
-            itemView.findViewById<TextView>(R.id.disease_tv_1).text = diseaseSearchModel.name //from single item disease search
+            itemView.findViewById<TextView>(R.id.disease_tv_1).text =
+                diseaseSearchModel.name //from single item disease search
             itemName = diseaseSearchModel.name
             itemDescription = diseaseSearchModel.des
             itemDescriptionKid = diseaseSearchModel.des_kid
+            itemId = diseaseSearchModel.documentId
         }
 
         init {
@@ -48,6 +51,7 @@ class NewSearchListDiseaseAdapter(var diseaseSearchModelList: List<DiseaseSearch
                 intent.putExtra("send_to_detail_disease_name", itemName)
                 intent.putExtra("send_to_detail_disease_des", itemDescription)
                 intent.putExtra("send_to_detail_disease_des_kid", itemDescriptionKid)
+                intent.putExtra("send_to_detail_disease_id", itemId)
                 itemView.context.startActivity(intent)
 
             }
