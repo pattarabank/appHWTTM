@@ -2,8 +2,8 @@
 ## Github link:
 https://github.com/pattarabank/appHWTTM
 ## Installation
-1.Download lastest version of ApplicationForHealthWithTraditionalThaiMedicine.apk file from here
-https://github.com/pattarabank/appHWTTM/releases
+1.Download lastest version of ApplicationForHealthWithTraditionalThaiMedicine.apk file from here<br/>
+https://github.com/pattarabank/appHWTTM/releases<br/>
 2.Install ApplicationForHealthWithTraditionalThaiMedicine.apk in your android device.
 ## Installation for developer
 1.Clone this git to your Android Studio.
