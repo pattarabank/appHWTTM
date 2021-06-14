@@ -250,12 +250,14 @@ or add Firebase using the Firebase Assistant in Android Studio.<br/>
  ┃ ┗ 📂wrapper
  ┃ ┃ ┣ 📜gradle-wrapper.jar
  ┃ ┃ ┗ 📜gradle-wrapper.properties
+ ┣ 📂NlpFunctionFlaskServer
+ ┃ ┗ 📜NlpFunctionFlaskServer.py
  ┣ 📜.gitattributes
  ┣ 📜.gitignore
+ ┣ 📜build.gradle
  ┣ 📜gradle.properties
  ┣ 📜gradlew
  ┣ 📜gradlew.bat
  ┣ 📜README.md
  ┗ 📜settings.gradle
-
 ```
