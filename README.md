@@ -10,7 +10,8 @@ https://github.com/pattarabank/appHWTTM/releases<br/>
 2.Add Firebase to your Android project (following this instruction document https://firebase.google.com/docs/android/setup)
 or add Firebase using the Firebase Assistant in Android Studio.<br/>
 3.Add Firebase Cloud Firestore and Firebase Authentication to your Android project.<br/>
-4.Installation complete.
+4.Run file NlpFunctionFlaskServer.py<br/>
+5.Installation complete.
 ## Features
 - Help users to access Thai traditional medicine and Thai herbal remedies.<br/>
 - Help users increase convenience and speed in finding information on basic self-care.<br/>
